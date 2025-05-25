@@ -4,7 +4,7 @@ import { Coffee, Heart, Camera, Map } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center sunset-gradient relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center ocean-gradient relative overflow-hidden">
       {/* Floating elements */}
       <div className="absolute top-20 left-10 animate-float">
         <Coffee className="text-white/30 w-8 h-8" />
@@ -37,12 +37,12 @@ const Hero = () => {
             <span>•</span>
             <span className="flex items-center gap-2">
               <Heart className="w-5 h-5" />
-              Sunset chaser
+              Lifelong learner
             </span>
           </div>
 
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-            Building a life filled with curiosity and good coffee.
+            Building a life filled with curiosity, creativity, and meaningful connections.
           </p>
 
           {/* Profile Image Placeholder */}
@@ -61,22 +61,22 @@ const Hero = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
               <div className="flex items-center gap-3">
                 <span className="text-2xl">🎵</span>
-                <span>Spotify playlist</span>
+                <span>Lo-fi beats playlist</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-2xl">📖</span>
-                <span>Current book</span>
+                <span>Atomic Habits</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-2xl">✈️</span>
-                <span>Random travel memory</span>
+                <span>Planning Japan trip</span>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="flex flex-wrap gap-4 justify-center">
-            {['My Story', 'Passions', 'Gallery', "Let's Chat"].map((link) => (
+            {['My Story', 'Passions', 'Gallery', 'Education', 'Journal', "Let's Chat"].map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase().replace(/['s\s]/g, '').replace('lets', 'connect')}`}

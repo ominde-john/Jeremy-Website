@@ -14,7 +14,7 @@
     --popover: 255 255 255;
     --popover-foreground: 31 41 55;
 
-    --primary: 255 107 107;
+    --primary: 59 130 246;
     --primary-foreground: 255 255 255;
 
     --secondary: 243 244 246;
@@ -23,7 +23,7 @@
     --muted: 243 244 246;
     --muted-foreground: 107 114 128;
 
-    --accent: 255 139 66;
+    --accent: 16 185 129;
     --accent-foreground: 255 255 255;
 
     --destructive: 239 68 68;
@@ -31,18 +31,18 @@
 
     --border: 229 231 235;
     --input: 229 231 235;
-    --ring: 255 107 107;
+    --ring: 59 130 246;
 
     --radius: 0.75rem;
 
     --sidebar-background: 255 255 255;
     --sidebar-foreground: 31 41 55;
-    --sidebar-primary: 255 107 107;
+    --sidebar-primary: 59 130 246;
     --sidebar-primary-foreground: 255 255 255;
     --sidebar-accent: 243 244 246;
     --sidebar-accent-foreground: 31 41 55;
     --sidebar-border: 229 231 235;
-    --sidebar-ring: 255 107 107;
+    --sidebar-ring: 59 130 246;
   }
 
   .dark {
@@ -55,7 +55,7 @@
     --popover: 55 65 81;
     --popover-foreground: 249 250 251;
 
-    --primary: 255 107 107;
+    --primary: 59 130 246;
     --primary-foreground: 255 255 255;
 
     --secondary: 75 85 99;
@@ -64,7 +64,7 @@
     --muted: 75 85 99;
     --muted-foreground: 156 163 175;
 
-    --accent: 255 139 66;
+    --accent: 16 185 129;
     --accent-foreground: 255 255 255;
 
     --destructive: 239 68 68;
@@ -72,16 +72,16 @@
 
     --border: 75 85 99;
     --input: 75 85 99;
-    --ring: 255 107 107;
+    --ring: 59 130 246;
 
     --sidebar-background: 31 41 55;
     --sidebar-foreground: 249 250 251;
-    --sidebar-primary: 255 107 107;
+    --sidebar-primary: 59 130 246;
     --sidebar-primary-foreground: 255 255 255;
     --sidebar-accent: 75 85 99;
     --sidebar-accent-foreground: 249 250 251;
     --sidebar-border: 75 85 99;
-    --sidebar-ring: 255 107 107;
+    --sidebar-ring: 59 130 246;
   }
 }
 
@@ -100,16 +100,20 @@
 }
 
 @layer components {
-  .sunset-gradient {
-    background: linear-gradient(135deg, #FF6B6B 0%, #FFB84D 50%, #F7DC6F 100%);
+  .ocean-gradient {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #10b981 100%);
   }
   
-  .ocean-gradient {
-    background: linear-gradient(135deg, #1A365D 0%, #2B77AD 50%, #38B2AC 100%);
+  .forest-gradient {
+    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+  }
+
+  .mountain-gradient {
+    background: linear-gradient(135deg, #374151 0%, #6b7280 50%, #9ca3af 100%);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #FF6B6B 0%, #FFB84D 100%);
+    background: linear-gradient(135deg, #1e40af 0%, #10b981 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

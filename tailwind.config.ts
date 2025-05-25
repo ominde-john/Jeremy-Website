@@ -63,18 +63,25 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				sunset: {
-					coral: '#FF6B6B',
-					peach: '#FFB84D',
-					golden: '#F7DC6F',
-					orange: '#FF8C42',
-					pink: '#FF9AA2',
-				},
 				ocean: {
-					deep: '#1A365D',
-					blue: '#2B77AD',
-					teal: '#38B2AC',
-					light: '#E6FFFA',
+					deep: '#1e40af',
+					blue: '#3b82f6',
+					light: '#dbeafe',
+				},
+				forest: {
+					deep: '#059669',
+					green: '#10b981',
+					light: '#d1fae5',
+				},
+				mountain: {
+					dark: '#374151',
+					gray: '#6b7280',
+					light: '#f3f4f6',
+				},
+				earth: {
+					brown: '#92400e',
+					tan: '#d97706',
+					cream: '#fef3c7',
 				}
 			},
 			borderRadius: {

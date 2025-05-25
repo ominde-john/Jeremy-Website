@@ -1,10 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +17,27 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'My Story', href: '#story' },
-    { name: 'Passions', href: '#passions' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Connect', href: '#connect' },
+    { name: 'Home', href: '/' },
+    { name: 'My Story', href: '/#story' },
+    { name: 'Passions', href: '/#passions' },
+    { name: 'Gallery', href: '/#gallery' },
+    { name: 'Education', href: '/education' },
+    { name: 'Journal', href: '/journal' },
+    { name: 'Connect', href: '/#connect' },
   ];
+
+  const handleNavClick = (href: string) => {
+    setIsOpen(false);
+    
+    // Handle anchor links for same page
+    if (href.startsWith('/#') && location.pathname === '/') {
+      const elementId = href.substring(2);
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -27,20 +45,31 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-dancing font-bold text-gradient">
-            Sunset Chaser
-          </div>
+          <Link to="/" className="text-2xl font-dancing font-bold text-gradient">
+            Digital Explorer
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-6">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-sunset-coral transition-colors duration-300 font-medium"
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('/#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => handleNavClick(item.href)}
+                  className="text-gray-700 hover:text-ocean-blue transition-colors duration-300 font-medium"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-gray-700 hover:text-ocean-blue transition-colors duration-300 font-medium"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </div>
 
@@ -57,14 +86,25 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden bg-white/95 backdrop-blur-md rounded-lg mt-2 p-4 shadow-xl animate-fade-in">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block py-3 text-gray-700 hover:text-sunset-coral transition-colors duration-300 font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('/#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => handleNavClick(item.href)}
+                  className="block py-3 text-gray-700 hover:text-ocean-blue transition-colors duration-300 font-medium"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block py-3 text-gray-700 hover:text-ocean-blue transition-colors duration-300 font-medium"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </div>
         )}

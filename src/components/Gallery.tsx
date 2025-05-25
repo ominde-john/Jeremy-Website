@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { images } from 'lucide-react';
+import { Images } from 'lucide-react';
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -82,7 +82,7 @@ const Gallery = () => {
               onClick={() => setSelectedCategory(category.id)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === category.id
-                  ? 'bg-sunset-coral text-white shadow-lg scale-105'
+                  ? 'bg-ocean-blue text-white shadow-lg scale-105'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover-scale'
               }`}
             >
@@ -128,7 +128,7 @@ const Gallery = () => {
 
         {/* Fun Caption Examples */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-sunset-coral/10 to-sunset-peach/10 rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-ocean-blue/10 to-forest-green/10 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-xl font-bold mb-4">Fun Caption Style:</h3>
             <div className="grid md:grid-cols-2 gap-4 text-left">
               <p className="text-gray-600 italic">"This is me trying to surf in Portugal. I lasted 3 minutes."</p>
