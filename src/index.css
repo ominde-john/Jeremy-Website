@@ -101,7 +101,7 @@
 
 @layer components {
   .ocean-gradient {
-    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #10b981 100%);
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #0ea5e9 100%);
   }
   
   .forest-gradient {
@@ -110,6 +110,18 @@
 
   .mountain-gradient {
     background: linear-gradient(135deg, #374151 0%, #6b7280 50%, #9ca3af 100%);
+  }
+
+  .tech-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  }
+
+  .education-gradient {
+    background: linear-gradient(135deg, #0f766e 0%, #14b8a6 50%, #5eead4 100%);
+  }
+
+  .journal-gradient {
+    background: linear-gradient(135deg, #be185d 0%, #ec4899 50%, #f472b6 100%);
   }
 
   .text-gradient {
