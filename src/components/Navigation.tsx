@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Code, Terminal, User, BookOpen, Camera, MessageCircle } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
@@ -17,19 +17,18 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'My Story', href: '/#story' },
-    { name: 'Passions', href: '/#passions' },
-    { name: 'Gallery', href: '/#gallery' },
-    { name: 'Education', href: '/education' },
-    { name: 'Journal', href: '/journal' },
-    { name: 'Connect', href: '/#connect' },
+    { name: 'Home', href: '/', icon: <Terminal className="w-4 h-4" /> },
+    { name: 'About', href: '/#story', icon: <User className="w-4 h-4" /> },
+    { name: 'Skills', href: '/#passions', icon: <Code className="w-4 h-4" /> },
+    { name: 'Projects', href: '/#gallery', icon: <Camera className="w-4 h-4" /> },
+    { name: 'Education', href: '/education', icon: <BookOpen className="w-4 h-4" /> },
+    { name: 'Journal', href: '/journal', icon: <MessageCircle className="w-4 h-4" /> },
+    { name: 'Contact', href: '/#connect', icon: <MessageCircle className="w-4 h-4" /> },
   ];
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     
-    // Handle anchor links for same page
     if (href.startsWith('/#') && location.pathname === '/') {
       const elementId = href.substring(2);
       const element = document.getElementById(elementId);
@@ -41,32 +40,40 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      scrolled ? 'bg-slate-900/95 backdrop-blur-md border-b border-slate-800' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <Link to="/" className="text-2xl font-dancing font-bold text-gradient">
-            Jeremy Bravoge
+          <Link to="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-sky-500 to-emerald-500 rounded-lg flex items-center justify-center">
+              <Code className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold text-gradient">Jeremy Bravoge</h1>
+              <p className="text-xs text-slate-400">Computer Science Student</p>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               item.href.startsWith('/#') ? (
                 <a
                   key={item.name}
                   href={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-gray-700 hover:text-ocean-blue transition-colors duration-300 font-medium"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-slate-300 hover:text-sky-400 hover:bg-slate-800/50 transition-all duration-300 font-medium"
                 >
+                  {item.icon}
                   {item.name}
                 </a>
               ) : (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-gray-700 hover:text-ocean-blue transition-colors duration-300 font-medium"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-slate-300 hover:text-sky-400 hover:bg-slate-800/50 transition-all duration-300 font-medium"
                 >
+                  {item.icon}
                   {item.name}
                 </Link>
               )
@@ -75,7 +82,7 @@ const Navigation = () => {
 
           {/* Mobile Navigation Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-slate-300 hover:text-sky-400"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -84,15 +91,16 @@ const Navigation = () => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-md rounded-lg mt-2 p-4 shadow-xl animate-fade-in">
+          <div className="md:hidden bg-slate-800/95 backdrop-blur-md rounded-lg mt-2 p-4 border border-slate-700 animate-fade-in">
             {navItems.map((item) => (
               item.href.startsWith('/#') ? (
                 <a
                   key={item.name}
                   href={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="block py-3 text-gray-700 hover:text-ocean-blue transition-colors duration-300 font-medium"
+                  className="flex items-center gap-3 py-3 text-slate-300 hover:text-sky-400 transition-colors duration-300 font-medium"
                 >
+                  {item.icon}
                   {item.name}
                 </a>
               ) : (
@@ -100,8 +108,9 @@ const Navigation = () => {
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block py-3 text-gray-700 hover:text-ocean-blue transition-colors duration-300 font-medium"
+                  className="flex items-center gap-3 py-3 text-slate-300 hover:text-sky-400 transition-colors duration-300 font-medium"
                 >
+                  {item.icon}
                   {item.name}
                 </Link>
               )

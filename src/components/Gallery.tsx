@@ -1,60 +1,66 @@
 
 import React, { useState } from 'react';
-import { Images } from 'lucide-react';
+import { Code, Laptop, Users, Award } from 'lucide-react';
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const categories = [
-    { id: 'all', name: 'All', emoji: '🌟' },
-    { id: 'travel', name: 'Travel', emoji: '🌍' },
-    { id: 'food', name: 'Food Adventures', emoji: '🍽️' },
-    { id: 'daily', name: 'Daily Life', emoji: '☕' },
-    { id: 'creative', name: 'Creative Works', emoji: '🎨' }
+    { id: 'all', name: 'All Projects', emoji: '🌟' },
+    { id: 'web', name: 'Web Dev', emoji: '🌐' },
+    { id: 'data', name: 'Data Science', emoji: '📊' },
+    { id: 'personal', name: 'Personal', emoji: '🎯' },
+    { id: 'learning', name: 'Learning', emoji: '📚' }
   ];
 
   const galleryItems = [
     {
       id: 1,
       src: "/lovable-uploads/977cbd89-2b52-4943-a787-83f575e4cd01.png",
-      category: 'travel',
-      caption: "This is me trying to surf in Portugal. I lasted 3 minutes.",
-      alt: "Travel adventure"
+      category: 'personal',
+      caption: "Journey through Computer Science - from algorithms to real-world applications",
+      alt: "Learning journey",
+      title: "CS Learning Path"
     },
     {
       id: 2,
       src: "/lovable-uploads/87cfc6cf-0ce0-4065-ba66-93274fa708bc.png",
-      category: 'daily',
-      caption: "Golden hour vibes in the city",
-      alt: "Daily life moment"
+      category: 'learning',
+      caption: "Coding sessions and problem-solving marathons",
+      alt: "Coding session",
+      title: "Development Environment"
     },
     {
       id: 3,
       src: "/lovable-uploads/66af1b0a-31fe-41d2-b09b-091a1471d669.png",
-      category: 'travel',
-      caption: "Exploring urban landscapes and finding beauty everywhere",
-      alt: "Urban exploration"
+      category: 'web',
+      caption: "Building responsive web applications with modern frameworks",
+      alt: "Web development",
+      title: "Web Projects"
     },
     {
       id: 4,
       src: "/lovable-uploads/3b16d71c-8ad7-4291-b828-3e8a086ae883.png",
-      category: 'daily',
-      caption: "Just another Tuesday with a view",
-      alt: "Casual moment"
+      category: 'data',
+      caption: "Data visualization and analytics projects",
+      alt: "Data analysis",
+      title: "Data Science Work"
     },
     {
       id: 5,
       src: "/lovable-uploads/4ec08e36-c43e-4a24-8740-e14a82bb927b.png",
-      category: 'travel',
-      caption: "When the city becomes your playground",
-      alt: "City exploration"
+      category: 'personal',
+      caption: "Exploring new technologies and frameworks",
+      alt: "Tech exploration",
+      title: "Tech Exploration"
     },
     {
       id: 6,
       src: "/lovable-uploads/c2bcaa9b-eff1-4d61-be89-2651b313aba7.png",
-      category: 'daily',
-      caption: "Candid moments are the best moments",
-      alt: "Candid photo"
+      category: 'learning',
+      caption: "Collaborative learning and team projects",
+      alt: "Team collaboration",
+      title: "Team Projects"
     }
   ];
 
@@ -63,14 +69,14 @@ const Gallery = () => {
     : galleryItems.filter(item => item.category === selectedCategory);
 
   return (
-    <section id="gallery" className="py-20 bg-white">
+    <section id="gallery" className="py-20 bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-            🌍 Gallery
+            🚀 Projects & Work
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Life in pictures - the good, the messy, and the beautifully imperfect
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+            A showcase of my development journey, projects, and technical achievements
           </p>
         </div>
 
@@ -80,10 +86,10 @@ const Gallery = () => {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 border ${
                 selectedCategory === category.id
-                  ? 'bg-ocean-blue text-white shadow-lg scale-105'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover-scale'
+                  ? 'bg-sky-500 text-white border-sky-500 shadow-lg scale-105'
+                  : 'bg-slate-700 text-slate-300 border-slate-600 hover:bg-slate-600 hover-scale'
               }`}
             >
               <span className="mr-2">{category.emoji}</span>
@@ -92,12 +98,12 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Gallery Grid */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item, index) => (
             <div
               key={item.id}
-              className="group relative overflow-hidden rounded-2xl shadow-lg hover-lift animate-scale-in"
+              className="group relative overflow-hidden rounded-2xl shadow-lg hover-lift animate-scale-in bg-slate-700 border border-slate-600"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="aspect-square overflow-hidden">
@@ -108,33 +114,58 @@ const Gallery = () => {
                 />
               </div>
               
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {/* Project Info Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-white text-sm leading-relaxed">
+                  <h3 className="text-white text-lg font-bold mb-2">{item.title}</h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">
                     {item.caption}
                   </p>
                 </div>
               </div>
 
               {/* Category Badge */}
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gray-700">
+              <div className="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-slate-200 border border-slate-600">
                 {categories.find(cat => cat.id === item.category)?.emoji}
                 {categories.find(cat => cat.id === item.category)?.name}
+              </div>
+
+              {/* Tech Stack Indicator */}
+              <div className="absolute top-4 right-4 flex gap-1">
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Fun Caption Examples */}
+        {/* Achievement Highlights */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-ocean-blue/10 to-forest-green/10 rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-xl font-bold mb-4">Fun Caption Style:</h3>
-            <div className="grid md:grid-cols-2 gap-4 text-left">
-              <p className="text-gray-600 italic">"This is me trying to surf in Portugal. I lasted 3 minutes."</p>
-              <p className="text-gray-600 italic">"When you order 'local specialty' and have no idea what you're eating."</p>
-              <p className="text-gray-600 italic">"5 AM sunrise hike was worth it (barely)."</p>
-              <p className="text-gray-600 italic">"That time I accidentally ordered sheep brain in Morocco."</p>
+          <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-2xl p-8 max-w-4xl mx-auto border border-slate-700">
+            <h3 className="text-xl font-bold mb-6 text-slate-100">Development Milestones:</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="flex items-center gap-3">
+                <Code className="w-8 h-8 text-sky-400" />
+                <div>
+                  <h4 className="font-semibold text-slate-100">500+ Hours</h4>
+                  <p className="text-sm text-slate-400">Coding Practice</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <Laptop className="w-8 h-8 text-emerald-400" />
+                <div>
+                  <h4 className="font-semibold text-slate-100">10+ Projects</h4>
+                  <p className="text-sm text-slate-400">Completed</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <Award className="w-8 h-8 text-purple-400" />
+                <div>
+                  <h4 className="font-semibold text-slate-100">CS Student</h4>
+                  <p className="text-sm text-slate-400">Current Status</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
