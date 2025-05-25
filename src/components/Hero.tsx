@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Code, Database, Globe, Cpu, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Code, Database, Globe, Cpu, Twitter, Instagram } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -26,7 +26,7 @@ const Hero = () => {
             </h1>
             
             <div className="text-xl md:text-2xl mb-6 space-y-2">
-              <div className="code-accent font-mono">const developer = {</div>
+              <div className="code-accent font-mono">const developer = {'{'}</div>
               <div className="ml-4 text-slate-300">
                 <span className="variable-accent">name</span>: <span className="string-accent">"Jeremy Bravoge"</span>,
               </div>
@@ -39,7 +39,7 @@ const Hero = () => {
               <div className="ml-4 text-slate-300">
                 <span className="variable-accent">passion</span>: <span className="string-accent">"Technology & Innovation"</span>
               </div>
-              <div className="code-accent font-mono">};</div>
+              <div className="code-accent font-mono">{'};'}</div>
             </div>
           </div>
 
@@ -59,7 +59,7 @@ const Hero = () => {
             <h3 className="text-xl font-semibold mb-6 text-gradient">Current Focus Areas:</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-lg flex items-center justify-center">
                   <Code className="w-6 h-6 text-white" />
                 </div>
                 <div>
