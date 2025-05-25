@@ -16,11 +16,11 @@ const Gallery = () => {
   const galleryItems = [
     {
       id: 1,
-      src: "/lovable-uploads/977cbd89-2b52-4943-a787-83f575e4cd01.png",
+      src: "/lovable-uploads/4b5d003a-fcd1-467d-83e1-bfbbf362097c.png",
       category: 'personal',
-      caption: "Journey through Computer Science - from algorithms to real-world applications",
-      alt: "Learning journey",
-      title: "CS Learning Path"
+      caption: "Professional networking and collaboration - building connections in Kenya's tech community",
+      alt: "Jeremy with colleagues",
+      title: "Tech Community"
     },
     {
       id: 2,
@@ -32,15 +32,15 @@ const Gallery = () => {
     },
     {
       id: 3,
-      src: "/lovable-uploads/66af1b0a-31fe-41d2-b09b-091a1471d669.png",
+      src: "/lovable-uploads/7d3ab5b9-67bd-4acf-ab30-6218265589cf.png",
       category: 'web',
-      caption: "Building responsive web applications with modern frameworks",
-      alt: "Web development",
-      title: "Web Projects"
+      caption: "Documenting development process and sharing knowledge through content creation",
+      alt: "Content creation",
+      title: "Knowledge Sharing"
     },
     {
       id: 4,
-      src: "/lovable-uploads/3b16d71c-8ad7-4291-b828-3e8a086ae883.png",
+      src: "/lovable-uploads/66af1b0a-31fe-41d2-b09b-091a1471d669.png",
       category: 'data',
       caption: "Data visualization and analytics projects",
       alt: "Data analysis",
@@ -48,19 +48,19 @@ const Gallery = () => {
     },
     {
       id: 5,
-      src: "/lovable-uploads/4ec08e36-c43e-4a24-8740-e14a82bb927b.png",
+      src: "/lovable-uploads/faa36899-4efe-47d6-877b-21ed6ad0abee.png",
       category: 'personal',
-      caption: "Exploring new technologies and frameworks",
-      alt: "Tech exploration",
-      title: "Tech Exploration"
+      caption: "Professional developer ready to tackle complex programming challenges",
+      alt: "Professional setup",
+      title: "Professional Focus"
     },
     {
       id: 6,
-      src: "/lovable-uploads/c2bcaa9b-eff1-4d61-be89-2651b313aba7.png",
+      src: "/lovable-uploads/53a1f8b0-710e-4bac-9792-d57fe8bde432.png",
       category: 'learning',
-      caption: "Collaborative learning and team projects",
-      alt: "Team collaboration",
-      title: "Team Projects"
+      caption: "Continuous learning and skill development in modern technologies",
+      alt: "Skill development",
+      title: "Continuous Growth"
     }
   ];
 
@@ -73,10 +73,10 @@ const Gallery = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-            🚀 Projects & Work
+            🚀 Projects & Professional Journey
           </h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-            A showcase of my development journey, projects, and technical achievements
+            A showcase of my development journey, projects, and technical achievements from Kenya
           </p>
         </div>
 
@@ -88,7 +88,7 @@ const Gallery = () => {
               onClick={() => setSelectedCategory(category.id)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 border ${
                 selectedCategory === category.id
-                  ? 'bg-sky-500 text-white border-sky-500 shadow-lg scale-105'
+                  ? 'bg-sky-500 text-slate-900 border-sky-500 shadow-lg scale-105'
                   : 'bg-slate-700 text-slate-300 border-slate-600 hover:bg-slate-600 hover-scale'
               }`}
             >
@@ -117,7 +117,7 @@ const Gallery = () => {
               {/* Project Info Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-white text-lg font-bold mb-2">{item.title}</h3>
+                  <h3 className="text-slate-100 text-lg font-bold mb-2">{item.title}</h3>
                   <p className="text-slate-300 text-sm leading-relaxed">
                     {item.caption}
                   </p>
@@ -132,9 +132,9 @@ const Gallery = () => {
 
               {/* Tech Stack Indicator */}
               <div className="absolute top-4 right-4 flex gap-1">
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-sky-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
               </div>
             </div>
           ))}
@@ -142,28 +142,28 @@ const Gallery = () => {
 
         {/* Achievement Highlights */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-2xl p-8 max-w-4xl mx-auto border border-slate-700">
-            <h3 className="text-xl font-bold mb-6 text-slate-100">Development Milestones:</h3>
+          <div className="bg-gradient-to-r from-slate-800/70 to-slate-700/70 rounded-2xl p-8 max-w-4xl mx-auto border border-slate-600">
+            <h3 className="text-xl font-bold mb-6 text-slate-100">Professional Milestones:</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="flex items-center gap-3">
                 <Code className="w-8 h-8 text-sky-400" />
                 <div>
-                  <h4 className="font-semibold text-slate-100">500+ Hours</h4>
-                  <p className="text-sm text-slate-400">Coding Practice</p>
+                  <h4 className="font-semibold text-slate-100">1000+ Hours</h4>
+                  <p className="text-sm text-slate-400">Professional Coding</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Laptop className="w-8 h-8 text-emerald-400" />
                 <div>
-                  <h4 className="font-semibold text-slate-100">10+ Projects</h4>
-                  <p className="text-sm text-slate-400">Completed</p>
+                  <h4 className="font-semibold text-slate-100">20+ Projects</h4>
+                  <p className="text-sm text-slate-400">Delivered</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Award className="w-8 h-8 text-purple-400" />
                 <div>
-                  <h4 className="font-semibold text-slate-100">CS Student</h4>
-                  <p className="text-sm text-slate-400">Current Status</p>
+                  <h4 className="font-semibold text-slate-100">Kenya Tech</h4>
+                  <p className="text-sm text-slate-400">Professional</p>
                 </div>
               </div>
             </div>

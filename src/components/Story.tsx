@@ -4,38 +4,38 @@ import { GraduationCap, Code, Target, Heart, Sparkles, Coffee } from 'lucide-rea
 import { Card, CardContent } from '@/components/ui/card';
 
 const Story = () => {
-  const beliefs = ["Continuous Learning", "Problem Solving", "Innovation", "Collaboration"];
+  const beliefs = ["Continuous Innovation", "Clean Code Architecture", "Knowledge Sharing", "Tech Leadership"];
   
   const highlights = [
     {
-      icon: <GraduationCap className="w-6 h-6" />,
-      title: "Form Four Graduate",
-      description: "Successfully completed secondary education with focus on mathematics and sciences, building foundation for tech career"
-    },
-    {
       icon: <Code className="w-6 h-6" />,
-      title: "Computer Science Journey",
-      description: "Currently pursuing Computer Science degree, specializing in software development and data analysis"
+      title: "Professional Programmer",
+      description: "Experienced software developer specializing in full-stack solutions and data science applications"
     },
     {
       icon: <Target className="w-6 h-6" />,
-      title: "Tech Enthusiast",
-      description: "Passionate about emerging technologies, always eager to learn new programming languages and frameworks"
+      title: "Kenya Tech Innovator",
+      description: "Contributing to Kenya's growing technology sector through innovative solutions and mentorship"
+    },
+    {
+      icon: <GraduationCap className="w-6 h-6" />,
+      title: "Computer Science Expert",
+      description: "Advanced expertise in algorithms, system design, and modern development methodologies"
     }
   ];
 
   const qAndA = [
     {
       question: "Programming philosophy:",
-      answer: "Clean code, continuous learning, solve real problems"
+      answer: "Scalable solutions, best practices, real-world impact"
     },
     {
-      question: "Inspiration:",
-      answer: "Making technology accessible and impactful for everyone"
+      question: "Mission in Kenya:",
+      answer: "Advancing local tech talent and building world-class solutions"
     },
     {
       question: "Daily motivation:",
-      answer: "Building solutions, learning something new, contributing to open source"
+      answer: "Creating efficient code, solving complex problems, mentoring others"
     }
   ];
 
@@ -51,30 +51,31 @@ const Story = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Bio Summary */}
           <div className="animate-slide-in-left">
-            <Card className="skill-card hover-lift">
+            <Card className="bg-slate-800/70 border border-slate-600 hover:border-sky-500/50 transition-all duration-300 hover-lift">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 text-slate-100">
                   <Sparkles className="w-6 h-6 text-sky-400" />
-                  My Journey:
+                  My Professional Journey:
                 </h3>
                 <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                  I'm Jeremy Bravoge, a Form Four graduate currently pursuing Computer Science with a passion for 
-                  technology and innovation. My journey started with curiosity about how things work, and now 
-                  I'm dedicated to building solutions that make a difference.
+                  I'm Jeremy Bravoge, a professional programmer from Kenya with expertise in 
+                  full-stack development and data science. My passion lies in creating robust, 
+                  scalable solutions that solve real-world problems and drive innovation.
                 </p>
                 <p className="text-lg text-slate-300 leading-relaxed">
-                  From algorithms to real-world applications, I'm constantly learning and pushing myself to 
-                  grow as a developer while contributing to the tech community.
+                  From enterprise applications to cutting-edge machine learning projects, I'm 
+                  committed to excellence in software engineering while contributing to Kenya's 
+                  growing technology ecosystem.
                 </p>
               </CardContent>
             </Card>
 
             {/* Core Values */}
-            <Card className="skill-card hover-lift mt-8">
+            <Card className="bg-slate-800/70 border border-slate-600 hover:border-emerald-500/50 transition-all duration-300 hover-lift mt-8">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-100">
                   <Heart className="w-6 h-6 text-emerald-400" />
-                  I Believe In:
+                  Professional Values:
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {beliefs.map((belief, index) => (
@@ -88,18 +89,27 @@ const Story = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Professional Image */}
+            <div className="mt-8 rounded-2xl overflow-hidden">
+              <img 
+                src="/lovable-uploads/ead8f80a-3fd5-4fb7-84ba-5c61bb45a293.png"
+                alt="Jeremy Bravoge - Professional Developer"
+                className="w-full h-64 object-cover rounded-2xl border border-slate-600"
+              />
+            </div>
           </div>
 
           {/* Career Highlights */}
           <div className="animate-scale-in">
-            <h3 className="text-2xl font-bold mb-6 text-slate-100">Career Highlights:</h3>
+            <h3 className="text-2xl font-bold mb-6 text-slate-100">Professional Highlights:</h3>
             <div className="space-y-6">
               {highlights.map((highlight, index) => (
-                <Card key={index} className="skill-card hover-lift">
+                <Card key={index} className="bg-slate-800/70 border border-slate-600 hover:border-sky-500/50 transition-all duration-300 hover-lift">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="bg-gradient-to-br from-sky-500 to-emerald-500 p-3 rounded-xl">
-                        <div className="text-white">
+                        <div className="text-slate-900">
                           {highlight.icon}
                         </div>
                       </div>
@@ -112,18 +122,27 @@ const Story = () => {
                 </Card>
               ))}
             </div>
+
+            {/* Additional Professional Image */}
+            <div className="mt-8 rounded-2xl overflow-hidden">
+              <img 
+                src="/lovable-uploads/652c7914-5223-4a62-b3bf-30a79d36a14d.png"
+                alt="Jeremy Bravoge - Technology Focus"
+                className="w-full h-64 object-cover rounded-2xl border border-slate-600"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Personal Q&A */}
+        {/* Professional Q&A */}
         <div className="mt-16 animate-fade-in">
           <h3 className="text-2xl font-bold mb-8 text-center flex items-center justify-center gap-2 text-slate-100">
             <Coffee className="w-6 h-6 text-emerald-400" />
-            Developer Insights:
+            Professional Insights:
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {qAndA.map((item, index) => (
-              <Card key={index} className="skill-card hover-lift">
+              <Card key={index} className="bg-slate-800/70 border border-slate-600 hover:border-purple-500/50 transition-all duration-300 hover-lift">
                 <CardContent className="p-6 text-center">
                   <h4 className="font-semibold text-slate-200 mb-3">{item.question}</h4>
                   <p className="text-sky-400 font-medium">{item.answer}</p>
