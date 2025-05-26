@@ -18,7 +18,7 @@ const Hero = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Content */}
+          {/* Left side - Code and Content */}
           <div className="text-slate-100 animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               <span className="font-dancing text-gradient">Jambo!</span>
@@ -26,7 +26,7 @@ const Hero = () => {
               <span className="font-inter">I'm Jeremy Bravoge</span>
             </h1>
             
-            <div className="text-xl md:text-2xl mb-8 space-y-2">
+            <div className="text-xl md:text-2xl mb-8 space-y-2 bg-slate-800/40 backdrop-blur-md rounded-xl p-6 border border-slate-700">
               <div className="code-accent font-mono">const developer = {'{'}</div>
               <div className="ml-4 text-slate-300">
                 <span className="variable-accent">name</span>: <span className="string-accent">"Jeremy Bravoge"</span>,
@@ -41,45 +41,6 @@ const Hero = () => {
                 <span className="variable-accent">passion</span>: <span className="string-accent">"Technology & Innovation"</span>
               </div>
               <div className="code-accent font-mono">{'};'}</div>
-            </div>
-
-            {/* Professional Summary */}
-            <div className="bg-slate-800/60 backdrop-blur-md rounded-2xl p-6 mb-8 border border-slate-600">
-              <h3 className="text-xl font-semibold mb-4 text-gradient">Professional Expertise:</h3>
-              <p className="text-slate-300 leading-relaxed mb-4">
-                Experienced software developer from Kenya, specializing in full-stack development 
-                and data science solutions. Passionate about creating innovative technology that 
-                drives progress in East Africa's growing tech ecosystem.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                    <Code className="w-5 h-5 text-slate-900" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-100">Full-Stack</h4>
-                    <p className="text-xs text-slate-400">Python, React, Node.js</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
-                    <Database className="w-5 h-5 text-slate-900" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-100">Data Science</h4>
-                    <p className="text-xs text-slate-400">ML & Analytics</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-500 rounded-lg flex items-center justify-center">
-                    <Globe className="w-5 h-5 text-slate-900" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-100">Web Solutions</h4>
-                    <p className="text-xs text-slate-400">Modern Frameworks</p>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Social Links */}
@@ -138,7 +99,7 @@ const Hero = () => {
               {/* Main profile image */}
               <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-2xl hover-scale border-2 border-sky-500/30">
                 <img 
-                  src="/lovable-uploads/c2bcaa9b-eff1-4d61-be89-2651b313aba7.png"
+                  src="/lovable-uploads/bcd9482d-5dec-4e1a-8a8f-988c4129dda3.png"
                   alt="Jeremy Bravoge - Professional Developer"
                   className="w-full h-64 object-cover"
                 />
@@ -152,7 +113,7 @@ const Hero = () => {
               {/* Secondary images */}
               <div className="relative rounded-xl overflow-hidden shadow-lg hover-scale">
                 <img 
-                  src="/lovable-uploads/977cbd89-2b52-4943-a787-83f575e4cd01.png"
+                  src="/lovable-uploads/4ec08e36-c43e-4a24-8740-e14a82bb927b.png"
                   alt="Tech Environment"
                   className="w-full h-32 object-cover"
                 />
@@ -161,11 +122,52 @@ const Hero = () => {
               
               <div className="relative rounded-xl overflow-hidden shadow-lg hover-scale">
                 <img 
-                  src="/lovable-uploads/4ec08e36-c43e-4a24-8740-e14a82bb927b.png"
+                  src="/lovable-uploads/977cbd89-2b52-4943-a787-83f575e4cd01.png"
                   alt="Innovation Focus"
                   className="w-full h-32 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Professional Summary - Separate Section */}
+        <div className="mt-16 animate-fade-in">
+          <div className="bg-slate-800/60 backdrop-blur-md rounded-2xl p-8 border border-slate-600">
+            <h3 className="text-2xl font-semibold mb-6 text-gradient text-center">Professional Expertise</h3>
+            <p className="text-slate-300 leading-relaxed mb-8 text-center max-w-4xl mx-auto">
+              Experienced software developer from Kenya, specializing in full-stack development 
+              and data science solutions. Passionate about creating innovative technology that 
+              drives progress in East Africa's growing tech ecosystem.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="flex items-center gap-4 bg-slate-700/50 p-4 rounded-xl border border-slate-600">
+                <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                  <Code className="w-6 h-6 text-slate-900" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-100">Full-Stack</h4>
+                  <p className="text-sm text-slate-400">Python, React, Node.js</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 bg-slate-700/50 p-4 rounded-xl border border-slate-600">
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
+                  <Database className="w-6 h-6 text-slate-900" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-100">Data Science</h4>
+                  <p className="text-sm text-slate-400">ML & Analytics</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 bg-slate-700/50 p-4 rounded-xl border border-slate-600">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-lg flex items-center justify-center">
+                  <Globe className="w-6 h-6 text-slate-900" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-100">Web Solutions</h4>
+                  <p className="text-sm text-slate-400">Modern Frameworks</p>
+                </div>
               </div>
             </div>
           </div>
