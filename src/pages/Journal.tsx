@@ -50,20 +50,20 @@ const Journal = () => {
   ];
 
   const categories = [
-    { name: "All", count: journalEntries.length, color: "bg-gray-500" },
-    { name: "Education", count: 1, color: "bg-teal-500" },
+    { name: "All", count: journalEntries.length, color: "bg-slate-500" },
+    { name: "Education", count: 1, color: "bg-cyan-500" },
     { name: "Learning", count: 1, color: "bg-blue-500" },
     { name: "Projects", count: 1, color: "bg-purple-500" },
-    { name: "Reflection", count: 1, color: "bg-pink-500" }
+    { name: "Reflection", count: 1, color: "bg-emerald-500" }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="journal-gradient py-20 text-white">
+        <section className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 py-20 text-slate-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
               📝 My Learning Journal
@@ -89,18 +89,18 @@ const Journal = () => {
         </section>
 
         {/* Categories */}
-        <section className="py-12 bg-white">
+        <section className="py-12 bg-slate-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold mb-8 text-center">Browse by Category</h2>
+            <h2 className="text-2xl font-bold mb-8 text-center text-slate-100">Browse by Category</h2>
             <div className="flex flex-wrap justify-center gap-4">
               {categories.map((category, index) => (
                 <button
                   key={index}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-700 hover:bg-slate-600 transition-colors duration-300 border border-slate-600"
                 >
                   <div className={`w-3 h-3 rounded-full ${category.color}`}></div>
-                  <span className="font-medium">{category.name}</span>
-                  <span className="text-sm text-gray-500">({category.count})</span>
+                  <span className="font-medium text-slate-200">{category.name}</span>
+                  <span className="text-sm text-slate-400">({category.count})</span>
                 </button>
               ))}
             </div>
@@ -108,43 +108,43 @@ const Journal = () => {
         </section>
 
         {/* Journal Entries */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-slate-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-8">
               {journalEntries.map((entry, index) => (
-                <Card key={entry.id} className="hover-lift animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                <Card key={entry.id} className="hover-lift animate-fade-in bg-slate-800 border-slate-600" style={{ animationDelay: `${index * 0.2}s` }}>
                   <CardHeader>
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="bg-pink-100 p-2 rounded-lg">
-                        <User className="w-5 h-5 text-pink-600" />
+                      <div className="bg-purple-500/20 p-2 rounded-lg border border-purple-500/30">
+                        <User className="w-5 h-5 text-purple-400" />
                       </div>
                       <div>
-                        <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <div className="flex items-center gap-2 text-sm text-slate-400">
                           <Calendar className="w-4 h-4" />
                           <span>{new Date(entry.date).toLocaleDateString()}</span>
                           <span>•</span>
                           <span>{entry.readTime}</span>
                         </div>
-                        <div className="inline-block bg-pink-100 text-pink-700 px-2 py-1 rounded text-xs font-medium mt-1">
+                        <div className="inline-block bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs font-medium mt-1 border border-purple-500/30">
                           {entry.category}
                         </div>
                       </div>
                     </div>
-                    <CardTitle className="text-xl hover:text-pink-600 transition-colors cursor-pointer">
+                    <CardTitle className="text-xl hover:text-purple-400 transition-colors cursor-pointer text-slate-100">
                       {entry.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 mb-4">{entry.excerpt}</p>
-                    <p className="text-gray-700 mb-4 italic">"{entry.content}"</p>
+                    <p className="text-slate-300 mb-4">{entry.excerpt}</p>
+                    <p className="text-slate-400 mb-4 italic">"{entry.content}"</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {entry.tags.map((tag, i) => (
-                        <span key={i} className="bg-pink-50 text-pink-600 px-2 py-1 rounded text-xs">
+                        <span key={i} className="bg-slate-700 text-purple-400 px-2 py-1 rounded text-xs border border-slate-600">
                           #{tag}
                         </span>
                       ))}
                     </div>
-                    <button className="text-pink-600 font-medium hover:text-pink-700 transition-colors">
+                    <button className="text-purple-400 font-medium hover:text-purple-300 transition-colors">
                       Read full entry →
                     </button>
                   </CardContent>
@@ -155,25 +155,25 @@ const Journal = () => {
         </section>
 
         {/* Newsletter Signup */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-slate-800">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-pink-50 rounded-2xl p-8">
-              <Lightbulb className="w-12 h-12 text-pink-600 mx-auto mb-4" />
-              <h2 className="text-3xl font-bold mb-4 text-gray-900">Stay Updated</h2>
-              <p className="text-lg text-gray-600 mb-6">
+            <div className="bg-slate-700/50 rounded-2xl p-8 border border-slate-600">
+              <Lightbulb className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+              <h2 className="text-3xl font-bold mb-4 text-slate-100">Stay Updated</h2>
+              <p className="text-lg text-slate-300 mb-6">
                 Get notified when I publish new entries about my learning journey, tech discoveries, and personal growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <input
                   type="email"
                   placeholder="Your email address"
-                  className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="flex-1 px-4 py-3 rounded-lg border border-slate-600 bg-slate-800 text-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-slate-400"
                 />
-                <button className="bg-pink-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors">
+                <button className="bg-purple-600 text-slate-100 px-6 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors">
                   Subscribe
                 </button>
               </div>
-              <p className="text-sm text-gray-500 mt-4">
+              <p className="text-sm text-slate-400 mt-4">
                 No spam, just genuine updates about my journey. Unsubscribe anytime.
               </p>
             </div>

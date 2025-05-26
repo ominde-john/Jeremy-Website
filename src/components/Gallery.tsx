@@ -48,7 +48,7 @@ const Gallery = () => {
     },
     {
       id: 5,
-      src: "/lovable-uploads/faa36899-4efe-47d6-877b-21ed6ad0abee.png",
+      src: "/lovable-uploads/c2bcaa9b-eff1-4d61-be89-2651b313aba7.png",
       category: 'personal',
       caption: "Professional developer ready to tackle complex programming challenges",
       alt: "Professional setup",
@@ -56,7 +56,7 @@ const Gallery = () => {
     },
     {
       id: 6,
-      src: "/lovable-uploads/53a1f8b0-710e-4bac-9792-d57fe8bde432.png",
+      src: "/lovable-uploads/977cbd89-2b52-4943-a787-83f575e4cd01.png",
       category: 'learning',
       caption: "Continuous learning and skill development in modern technologies",
       alt: "Skill development",

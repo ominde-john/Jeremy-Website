@@ -93,7 +93,7 @@ const Story = () => {
             {/* Professional Image */}
             <div className="mt-8 rounded-2xl overflow-hidden">
               <img 
-                src="/lovable-uploads/ead8f80a-3fd5-4fb7-84ba-5c61bb45a293.png"
+                src="/lovable-uploads/3b16d71c-8ad7-4291-b828-3e8a086ae883.png"
                 alt="Jeremy Bravoge - Professional Developer"
                 className="w-full h-64 object-cover rounded-2xl border border-slate-600"
               />
@@ -126,7 +126,7 @@ const Story = () => {
             {/* Additional Professional Image */}
             <div className="mt-8 rounded-2xl overflow-hidden">
               <img 
-                src="/lovable-uploads/652c7914-5223-4a62-b3bf-30a79d36a14d.png"
+                src="/lovable-uploads/4ec08e36-c43e-4a24-8740-e14a82bb927b.png"
                 alt="Jeremy Bravoge - Technology Focus"
                 className="w-full h-64 object-cover rounded-2xl border border-slate-600"
               />
