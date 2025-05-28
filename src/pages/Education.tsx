@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -82,11 +81,15 @@ const Education = () => {
                 <div key={index} className={`flex flex-col lg:flex-row gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   <div className="lg:w-1/2">
                     <Card className="hover-lift bg-slate-700 border-slate-600">
-                      <div className="aspect-video overflow-hidden rounded-t-lg">
+                      <div className="aspect-[4/3] overflow-hidden rounded-t-lg">
                         <img
                           src={edu.image}
                           alt={edu.institution}
                           className="w-full h-full object-cover"
+                          style={{
+                            objectPosition: 'center top 20%',
+                            filter: 'contrast(1.2) saturate(1.1) brightness(1.05)'
+                          }}
                         />
                       </div>
                       <CardHeader>
