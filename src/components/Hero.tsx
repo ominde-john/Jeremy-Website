@@ -74,7 +74,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right side - Professional photo with background removed effect */}
+          {/* Right side - Professional photo with face prominently displayed */}
           <div className="flex justify-center lg:justify-end">
             {/* Main profile image container with modern styling */}
             <div className="relative">
@@ -83,17 +83,17 @@ const Hero = () => {
                 <img 
                   src="/lovable-uploads/614b8cfd-ac6a-4138-b81f-62fa85e36130.png"
                   alt="Jeremy Bravoge - Professional Developer"
-                  className="w-80 h-96 lg:w-96 lg:h-[28rem] object-cover object-center rounded-2xl shadow-2xl"
+                  className="w-80 h-96 lg:w-96 lg:h-[28rem] object-cover object-top rounded-2xl shadow-2xl"
                   style={{
-                    // CSS filter to help remove/fade background
-                    filter: 'contrast(1.1) saturate(1.1)',
-                    // Mix blend mode for better background integration
-                    mixBlendMode: 'multiply'
+                    // Enhanced contrast and positioning to highlight the face
+                    filter: 'contrast(1.2) saturate(1.1) brightness(1.05)',
+                    // Better positioning to ensure face visibility
+                    objectPosition: 'center top 20%'
                   }}
                 />
                 
-                {/* Overlay gradient for professional look */}
-                <div className="absolute inset-8 bg-gradient-to-t from-slate-900/10 to-transparent rounded-2xl pointer-events-none"></div>
+                {/* Reduced overlay gradient to ensure face visibility */}
+                <div className="absolute inset-8 bg-gradient-to-t from-slate-900/5 to-transparent rounded-2xl pointer-events-none"></div>
               </div>
               
               {/* Decorative floating elements */}
