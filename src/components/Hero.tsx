@@ -81,7 +81,7 @@ const Hero = () => {
               {/* Profile image with transparent background effect */}
               <div className="relative bg-gradient-to-br from-sky-500/20 to-emerald-500/20 rounded-3xl p-8 backdrop-blur-sm border border-sky-500/30">
                 <img 
-                  src="/lovable-uploads/0970381c-c8c9-49a2-9f98-a639d372250c.png"
+                  src="/lovable-uploads/614b8cfd-ac6a-4138-b81f-62fa85e36130.png"
                   alt="Jeremy Bravoge - Professional Developer"
                   className="w-80 h-96 lg:w-96 lg:h-[28rem] object-cover object-center rounded-2xl shadow-2xl"
                   style={{
