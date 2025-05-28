@@ -20,7 +20,8 @@ const Gallery = () => {
       category: 'personal',
       caption: "Professional networking and collaboration - building connections in Kenya's tech community",
       alt: "Jeremy with colleagues",
-      title: "Tech Community"
+      title: "Tech Community",
+      facePosition: 'center top 25%'
     },
     {
       id: 2,
@@ -28,7 +29,8 @@ const Gallery = () => {
       category: 'learning',
       caption: "Coding sessions and problem-solving marathons",
       alt: "Coding session",
-      title: "Development Environment"
+      title: "Development Environment",
+      facePosition: 'center top 30%'
     },
     {
       id: 3,
@@ -36,7 +38,8 @@ const Gallery = () => {
       category: 'web',
       caption: "Documenting development process and sharing knowledge through content creation",
       alt: "Content creation",
-      title: "Knowledge Sharing"
+      title: "Knowledge Sharing",
+      facePosition: 'center top 20%'
     },
     {
       id: 4,
@@ -44,7 +47,8 @@ const Gallery = () => {
       category: 'data',
       caption: "Data visualization and analytics projects",
       alt: "Data analysis",
-      title: "Data Science Work"
+      title: "Data Science Work",
+      facePosition: 'center top 25%'
     },
     {
       id: 5,
@@ -52,7 +56,8 @@ const Gallery = () => {
       category: 'personal',
       caption: "Professional developer ready to tackle complex programming challenges",
       alt: "Professional setup",
-      title: "Professional Focus"
+      title: "Professional Focus",
+      facePosition: 'center top 15%'
     },
     {
       id: 6,
@@ -60,7 +65,8 @@ const Gallery = () => {
       category: 'learning',
       caption: "Continuous learning and skill development in modern technologies",
       alt: "Skill development",
-      title: "Continuous Growth"
+      title: "Continuous Growth",
+      facePosition: 'center top 20%'
     }
   ];
 
@@ -111,6 +117,10 @@ const Gallery = () => {
                   src={item.src}
                   alt={item.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  style={{
+                    objectPosition: item.facePosition,
+                    filter: 'contrast(1.2) saturate(1.1) brightness(1.05)'
+                  }}
                 />
               </div>
               

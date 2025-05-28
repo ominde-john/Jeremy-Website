@@ -90,12 +90,16 @@ const Story = () => {
               </CardContent>
             </Card>
 
-            {/* Professional Image */}
+            {/* Professional Image with enhanced face positioning */}
             <div className="mt-8 rounded-2xl overflow-hidden">
               <img 
                 src="/lovable-uploads/3b16d71c-8ad7-4291-b828-3e8a086ae883.png"
                 alt="Jeremy Bravoge - Professional Developer"
                 className="w-full h-64 object-cover rounded-2xl border border-slate-600"
+                style={{
+                  objectPosition: 'center top 15%',
+                  filter: 'contrast(1.2) saturate(1.1) brightness(1.05)'
+                }}
               />
             </div>
           </div>
@@ -123,12 +127,16 @@ const Story = () => {
               ))}
             </div>
 
-            {/* Additional Professional Image */}
+            {/* Additional Professional Image with enhanced face positioning */}
             <div className="mt-8 rounded-2xl overflow-hidden">
               <img 
                 src="/lovable-uploads/4ec08e36-c43e-4a24-8740-e14a82bb927b.png"
                 alt="Jeremy Bravoge - Technology Focus"
                 className="w-full h-64 object-cover rounded-2xl border border-slate-600"
+                style={{
+                  objectPosition: 'center top 20%',
+                  filter: 'contrast(1.2) saturate(1.1) brightness(1.05)'
+                }}
               />
             </div>
           </div>
