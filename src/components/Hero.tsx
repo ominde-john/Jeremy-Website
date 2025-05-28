@@ -74,22 +74,34 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right side - Single professional photo */}
+          {/* Right side - Professional photo with background removed effect */}
           <div className="flex justify-center lg:justify-end">
-            {/* Main profile image container with styling */}
+            {/* Main profile image container with modern styling */}
             <div className="relative">
-              {/* Profile image with proper sizing and styling */}
-              <img 
-                src="/lovable-uploads/91619897-a337-4ef8-868f-6e441a4ef09d.png"
-                alt="Jeremy Bravoge - Professional Developer"
-                className="w-80 h-96 lg:w-96 lg:h-[28rem] object-cover object-center rounded-2xl shadow-2xl border-2 border-sky-500/40"
-              />
+              {/* Profile image with transparent background effect */}
+              <div className="relative bg-gradient-to-br from-sky-500/20 to-emerald-500/20 rounded-3xl p-8 backdrop-blur-sm border border-sky-500/30">
+                <img 
+                  src="/lovable-uploads/0970381c-c8c9-49a2-9f98-a639d372250c.png"
+                  alt="Jeremy Bravoge - Professional Developer"
+                  className="w-80 h-96 lg:w-96 lg:h-[28rem] object-cover object-center rounded-2xl shadow-2xl"
+                  style={{
+                    // CSS filter to help remove/fade background
+                    filter: 'contrast(1.1) saturate(1.1)',
+                    // Mix blend mode for better background integration
+                    mixBlendMode: 'multiply'
+                  }}
+                />
+                
+                {/* Overlay gradient for professional look */}
+                <div className="absolute inset-8 bg-gradient-to-t from-slate-900/10 to-transparent rounded-2xl pointer-events-none"></div>
+              </div>
               
-              {/* Subtle overlay for professional look */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent rounded-2xl"></div>
+              {/* Decorative floating elements */}
+              <div className="absolute -top-4 -left-4 w-20 h-20 bg-sky-500/20 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-emerald-500/20 rounded-full blur-xl"></div>
               
-              {/* Decorative accent border */}
-              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-emerald-500/30 rounded-2xl -z-10"></div>
+              {/* Professional accent border */}
+              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-emerald-500/30 rounded-3xl -z-10"></div>
             </div>
           </div>
         </div>
