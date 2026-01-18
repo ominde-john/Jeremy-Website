@@ -18,19 +18,21 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', href: '/', icon: <Terminal className="w-4 h-4" /> },
-    { name: 'About', href: '/#story', icon: <User className="w-4 h-4" /> },
-    { name: 'Skills', href: '/#passions', icon: <Code className="w-4 h-4" /> },
-    { name: 'Projects', href: '/#gallery', icon: <Camera className="w-4 h-4" /> },
+    { name: 'About', href: '/story', icon: <User className="w-4 h-4" /> },
+    { name: 'Skills', href: '/passions', icon: <Code className="w-4 h-4" /> },
+    { name: 'Projects', href: '/gallery', icon: <Camera className="w-4 h-4" /> },
     { name: 'Education', href: '/education', icon: <BookOpen className="w-4 h-4" /> },
     { name: 'Journal', href: '/journal', icon: <MessageCircle className="w-4 h-4" /> },
-    { name: 'Contact', href: '/#connect', icon: <MessageCircle className="w-4 h-4" /> },
+    { name: 'Contact', href: '/connect', icon: <MessageCircle className="w-4 h-4" /> },
   ];
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     
-    if (href.startsWith('/#') && location.pathname === '/') {
-      const elementId = href.substring(2);
+    // If we're already on the home page and clicking a section link, scroll to it
+    const sectionPaths = ['/story', '/passions', '/gallery', '/connect'];
+    if (sectionPaths.includes(href) && location.pathname === '/') {
+      const elementId = href.substring(1);
       const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -57,26 +59,15 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
-              item.href.startsWith('/#') ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-slate-300 hover:text-sky-400 hover:bg-slate-800/50 transition-all duration-300 font-medium"
-                >
-                  {item.icon}
-                  {item.name}
-                </a>
-              ) : (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-slate-300 hover:text-sky-400 hover:bg-slate-800/50 transition-all duration-300 font-medium"
-                >
-                  {item.icon}
-                  {item.name}
-                </Link>
-              )
+              <Link
+                key={item.name}
+                to={item.href}
+                onClick={() => handleNavClick(item.href)}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-slate-300 hover:text-sky-400 hover:bg-slate-800/50 transition-all duration-300 font-medium"
+              >
+                {item.icon}
+                {item.name}
+              </Link>
             ))}
           </div>
 
@@ -93,27 +84,15 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden bg-slate-800/95 backdrop-blur-md rounded-lg mt-2 p-4 border border-slate-700 animate-fade-in">
             {navItems.map((item) => (
-              item.href.startsWith('/#') ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  className="flex items-center gap-3 py-3 text-slate-300 hover:text-sky-400 transition-colors duration-300 font-medium"
-                >
-                  {item.icon}
-                  {item.name}
-                </a>
-              ) : (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-3 py-3 text-slate-300 hover:text-sky-400 transition-colors duration-300 font-medium"
-                >
-                  {item.icon}
-                  {item.name}
-                </Link>
-              )
+              <Link
+                key={item.name}
+                to={item.href}
+                onClick={() => handleNavClick(item.href)}
+                className="flex items-center gap-3 py-3 text-slate-300 hover:text-sky-400 transition-colors duration-300 font-medium"
+              >
+                {item.icon}
+                {item.name}
+              </Link>
             ))}
           </div>
         )}
