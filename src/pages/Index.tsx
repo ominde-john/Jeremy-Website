@@ -12,6 +12,8 @@ interface IndexProps {
   scrollTo?: string;
 }
 
+const SCROLL_DELAY_MS = 100;
+
 const Index = ({ scrollTo }: IndexProps) => {
   useEffect(() => {
     if (scrollTo) {
@@ -21,7 +23,7 @@ const Index = ({ scrollTo }: IndexProps) => {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
+      }, SCROLL_DELAY_MS);
       return () => clearTimeout(timer);
     }
   }, [scrollTo]);
