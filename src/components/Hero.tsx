@@ -1,6 +1,16 @@
 
 import React from 'react';
 import { Twitter, Instagram, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const linkRoutes: Record<string, string> = {
+  'About Me': '/story',
+  'Skills': '/passions',
+  'Projects': '/gallery',
+  'Education': '/education',
+  'Journal': '/journal',
+  'Contact': '/connect',
+};
 
 const Hero = () => {
   return (
@@ -62,14 +72,14 @@ const Hero = () => {
 
             {/* Navigation buttons for different sections */}
             <div className="flex flex-wrap gap-3">
-              {['About Me', 'Skills', 'Projects', 'Education', 'Journal', 'Contact'].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase().replace(/[\s]/g, '').replace('aboutme', 'story').replace('contact', 'connect')}`}
+              {Object.entries(linkRoutes).map(([label, path]) => (
+                <Link
+                  key={label}
+                  to={path}
                   className="bg-slate-800/30 hover:bg-slate-700/50 backdrop-blur-md px-4 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 border border-slate-700 hover:border-sky-500/50 text-slate-200"
                 >
-                  {link}
-                </a>
+                  {label}
+                </Link>
               ))}
             </div>
           </div>
