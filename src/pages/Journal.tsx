@@ -1,61 +1,109 @@
-
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, User, Heart, BookOpen, Lightbulb, Coffee } from 'lucide-react';
+import { Users, Linkedin, Github, Twitter, Mail, Briefcase, Award, TrendingUp, Network } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 
-const Journal = () => {
-  const journalEntries = [
+const Collaborations = () => {
+  const collaborators = [
     {
       id: 1,
-      title: "Starting My Computer Science Journey",
-      date: "2024-01-15",
-      category: "Education",
-      excerpt: "Today marks the beginning of an exciting new chapter. After completing Form Four, I've decided to pursue Computer Science...",
-      content: "The decision wasn't easy, but I've always been fascinated by how technology shapes our world. From mobile apps to websites, everything seems to run on code, and I want to be part of creating that future.",
-      tags: ["education", "goals", "technology"],
-      readTime: "3 min read"
+      name: "John Ominde",
+      role: "Chief Technology Officer",
+      company: "Teksoft",
+      image: "https://www.teksoft.co.ke/assets/john-ominde-CkKgcyW1.jpg",
+      project: "Teksoft Platform Development",
+      description: "Full-stack Data Engineer with expertise in Python, SQL, React, Node.js, and cloud technologies. John leads all technical initiatives and platform development.",
+      skills: ["Python", "SQL", "React", "Node.js", "Cloud Tech"],
+      linkedin: "#",
+      github: "#",
+      testimonial: "Exceptional technical leadership and innovative approach to solving complex problems."
     },
     {
       id: 2,
-      title: "Learning Python: My First Programming Language",
-      date: "2024-02-10",
-      category: "Learning",
-      excerpt: "Diving into Python has been both challenging and rewarding. Here's what I've discovered so far...",
-      content: "Python's syntax is surprisingly readable, which makes it perfect for beginners like me. I've been working through basic concepts like variables, loops, and functions. Each small victory feels huge!",
-      tags: ["python", "programming", "learning"],
-      readTime: "5 min read"
+      name: "Isaac Prinsze",
+      role: "Community Manager",
+      company: "Teksoft",
+      image: "https://www.teksoft.co.ke/assets/isaac-BI14mDId.jpg",
+      project: "Community Engagement & Growth",
+      description: "Passionate about connecting people and fostering meaningful relationships within the organization. Drives community initiatives across Africa.",
+      skills: ["Community Building", "Networking", "Engagement"],
+      linkedin: "#",
+      github: "#",
+      testimonial: "Creates an inclusive environment where everyone feels valued and connected."
     },
     {
       id: 3,
-      title: "Building My First Web Project",
-      date: "2024-03-05",
-      category: "Projects",
-      excerpt: "Nothing beats the feeling of seeing your code come to life in a web browser. Here's the story of my first project...",
-      content: "It was just a simple calculator, but seeing it work in the browser was magical. The combination of HTML, CSS, and JavaScript opened up a whole new world of possibilities.",
-      tags: ["projects", "web development", "milestone"],
-      readTime: "4 min read"
-    },
-    {
-      id: 4,
-      title: "Reflections on Growth and Learning",
-      date: "2024-03-20",
-      category: "Reflection",
-      excerpt: "Looking back at the past few months, I'm amazed at how much I've grown. Here are some thoughts on the journey...",
-      content: "The imposter syndrome is real, but so is the progress. Every error message is a learning opportunity, and every solved problem builds confidence. The tech community has been incredibly supportive.",
-      tags: ["growth", "reflection", "community"],
-      readTime: "6 min read"
+      name: "Evans Richard",
+      role: "Engineering Lead",
+      company: "Teksoft",
+      image: "https://www.teksoft.co.ke/assets/evanschuchu-2mUI4Uta.jpg",
+      project: "Technical Architecture & Development",
+      description: "Leads engineering initiatives and technical implementation. Focused on building scalable solutions and mentoring developers.",
+      skills: ["Software Engineering", "Architecture", "Mentorship"],
+      linkedin: "#",
+      github: "#",
+      testimonial: "Strong technical expertise combined with excellent mentorship skills."
     }
   ];
 
-  const categories = [
-    { name: "All", count: journalEntries.length, color: "bg-slate-500" },
-    { name: "Education", count: 1, color: "bg-cyan-500" },
-    { name: "Learning", count: 1, color: "bg-blue-500" },
-    { name: "Projects", count: 1, color: "bg-purple-500" },
-    { name: "Reflection", count: 1, color: "bg-emerald-500" }
+  const networkingEvents = [
+    {
+      title: "Teksoft Community",
+      date: "Ongoing",
+      type: "Organization",
+      description: "Active member of Teksoft community, collaborating with the leadership team to empower developers across Africa.",
+      icon: Users,
+      color: "text-blue-400"
+    },
+    {
+      title: "Developer Meetup Kenya",
+      date: "Ongoing",
+      type: "Community",
+      description: "Regular attendee and contributor to monthly developer meetups, sharing knowledge on web development.",
+      icon: Network,
+      color: "text-purple-400"
+    },
+    {
+      title: "GitHub Open Source",
+      date: "Ongoing",
+      type: "Platform",
+      description: "Active contributor to open-source projects, collaborating with developers worldwide.",
+      icon: Github,
+      color: "text-green-400"
+    },
+    {
+      title: "LinkedIn Professional Network",
+      date: "Ongoing",
+      type: "Online",
+      description: "Engaged in professional discussions and knowledge sharing, connecting with tech professionals.",
+      icon: Linkedin,
+      color: "text-cyan-400"
+    }
+  ];
+
+  const achievements = [
+    {
+      title: "Teksoft Collaboration",
+      description: "Working with a talented team of innovators",
+      icon: Briefcase
+    },
+    {
+      title: "3+ Team Members",
+      description: "Collaborated across different roles and expertise",
+      icon: Users
+    },
+    {
+      title: "Community Driven",
+      description: "Part of empowering developers across Africa",
+      icon: Award
+    },
+    {
+      title: "Growing Network",
+      description: "Building meaningful professional connections",
+      icon: TrendingUp
+    }
   ];
 
   return (
@@ -68,93 +116,34 @@ const Journal = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <ScrollReveal>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                📝 My Learning Journal
+                Collaborations & Network
               </h1>
               <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed font-light">
-                Documenting my journey through computer science, one entry at a time
+                Collaborating with the Teksoft team and building meaningful connections in the tech community
               </p>
-              <div className="flex items-center justify-center gap-6 text-lg">
-                <div className="flex items-center gap-2">
-                  <BookOpen className="w-5 h-5" />
-                  <span>{journalEntries.length} entries</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Coffee className="w-5 h-5" />
-                  <span>Weekly updates</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Heart className="w-5 h-5" />
-                  <span>Authentic thoughts</span>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* Categories */}
-        <section className="py-12 bg-slate-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ScrollReveal>
-              <h2 className="text-2xl font-bold mb-8 text-center text-slate-100">Browse by Category</h2>
-            </ScrollReveal>
-            <ScrollReveal delay={100}>
-              <div className="flex flex-wrap justify-center gap-4">
-                {categories.map((category, index) => (
-                  <button
-                    key={index}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-700 hover:bg-slate-600 transition-colors duration-300 border border-slate-600"
-                  >
-                    <div className={`w-3 h-3 rounded-full ${category.color}`}></div>
-                    <span className="font-medium text-slate-200">{category.name}</span>
-                    <span className="text-sm text-slate-400">({category.count})</span>
-                  </button>
+              <div className="flex items-center justify-center gap-8 text-lg flex-wrap">
+                {achievements.map((achievement, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <achievement.icon className="w-5 h-5 text-purple-400" />
+                    <span>{achievement.title}</span>
+                  </div>
                 ))}
               </div>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* Journal Entries */}
-        <section className="py-20 bg-slate-900">
+        {/* Stats Section */}
+        <section className="py-12 bg-slate-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-8">
-              {journalEntries.map((entry, index) => (
-                <ScrollReveal key={entry.id} direction="scale" delay={index * 100}>
-                  <Card className="hover-lift bg-slate-800 border-slate-600">
-                    <CardHeader>
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="bg-purple-500/20 p-2 rounded-lg border border-purple-500/30">
-                          <User className="w-5 h-5 text-purple-400" />
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2 text-sm text-slate-400">
-                            <Calendar className="w-4 h-4" />
-                            <span>{new Date(entry.date).toLocaleDateString()}</span>
-                            <span>•</span>
-                            <span>{entry.readTime}</span>
-                          </div>
-                          <div className="inline-block bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs font-medium mt-1 border border-purple-500/30">
-                            {entry.category}
-                          </div>
-                        </div>
-                      </div>
-                      <CardTitle className="text-xl hover:text-purple-400 transition-colors cursor-pointer text-slate-100">
-                        {entry.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-slate-300 mb-4">{entry.excerpt}</p>
-                      <p className="text-slate-400 mb-4 italic">"{entry.content}"</p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {entry.tags.map((tag, i) => (
-                          <span key={i} className="bg-slate-700 text-purple-400 px-2 py-1 rounded text-xs border border-slate-600">
-                            #{tag}
-                          </span>
-                        ))}
-                      </div>
-                      <button className="text-purple-400 font-medium hover:text-purple-300 transition-colors">
-                        Read full entry →
-                      </button>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {achievements.map((stat, index) => (
+                <ScrollReveal key={index} delay={index * 100}>
+                  <Card className="bg-slate-700/50 border-slate-600 text-center hover-lift">
+                    <CardContent className="pt-6">
+                      <stat.icon className="w-10 h-10 text-purple-400 mx-auto mb-3" />
+                      <h3 className="text-2xl font-bold text-slate-100 mb-2">{stat.title}</h3>
+                      <p className="text-sm text-slate-400">{stat.description}</p>
                     </CardContent>
                   </Card>
                 </ScrollReveal>
@@ -163,29 +152,156 @@ const Journal = () => {
           </div>
         </section>
 
-        {/* Newsletter Signup */}
+        {/* Collaborators Section */}
+        <section className="py-20 bg-slate-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ScrollReveal>
+              <h2 className="text-4xl font-bold mb-4 text-center text-slate-100">
+                People I've Collaborated With
+              </h2>
+              <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
+                The talented Teksoft leadership team I've had the privilege to work with. Each collaboration has been instrumental in my growth as a developer.
+              </p>
+            </ScrollReveal>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {collaborators.map((person, index) => (
+                <ScrollReveal key={person.id} direction="up" delay={index * 100}>
+                  <Card className="hover-lift bg-slate-800 border-slate-600 h-full">
+                    <CardHeader>
+                      <div className="flex items-start gap-4 mb-4">
+                        <img
+                          src={person.image}
+                          alt={person.name}
+                          className="w-16 h-16 rounded-full border-2 border-purple-500"
+                        />
+                        <div className="flex-1">
+                          <CardTitle className="text-lg text-slate-100 mb-1">
+                            {person.name}
+                          </CardTitle>
+                          <p className="text-sm text-purple-400 font-medium">{person.role}</p>
+                          <p className="text-xs text-slate-400">{person.company}</p>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="mb-4">
+                        <h4 className="text-sm font-semibold text-slate-300 mb-2">Project</h4>
+                        <p className="text-sm text-purple-400 font-medium mb-2">{person.project}</p>
+                        <p className="text-sm text-slate-400">{person.description}</p>
+                      </div>
+
+                      <div className="mb-4">
+                        <h4 className="text-sm font-semibold text-slate-300 mb-2">Skills</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {person.skills.map((skill, i) => (
+                            <span key={i} className="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs border border-slate-600">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="mb-4 p-3 bg-slate-700/50 rounded-lg border border-slate-600">
+                        <p className="text-xs text-slate-300 italic">"{person.testimonial}"</p>
+                      </div>
+
+                      <div className="flex gap-3 pt-3 border-t border-slate-700">
+                        {person.linkedin && (
+                          <a href={person.linkedin} className="text-slate-400 hover:text-blue-400 transition-colors">
+                            <Linkedin className="w-5 h-5" />
+                          </a>
+                        )}
+                        {person.github && (
+                          <a href={person.github} className="text-slate-400 hover:text-purple-400 transition-colors">
+                            <Github className="w-5 h-5" />
+                          </a>
+                        )}
+                        {person.twitter && (
+                          <a href={person.twitter} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                            <Twitter className="w-5 h-5" />
+                          </a>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Networking Activities */}
         <section className="py-20 bg-slate-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ScrollReveal>
+              <h2 className="text-4xl font-bold mb-4 text-center text-slate-100">
+                Networking & Community Engagement
+              </h2>
+              <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
+                Active participation in tech communities and events to expand my network and share knowledge
+              </p>
+            </ScrollReveal>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {networkingEvents.map((event, index) => (
+                <ScrollReveal key={index} direction="up" delay={index * 100}>
+                  <Card className="hover-lift bg-slate-700/50 border-slate-600">
+                    <CardHeader>
+                      <div className="flex items-start gap-4">
+                        <div className="bg-purple-500/20 p-3 rounded-lg border border-purple-500/30">
+                          <event.icon className={`w-6 h-6 ${event.color}`} />
+                        </div>
+                        <div className="flex-1">
+                          <CardTitle className="text-xl text-slate-100 mb-2">
+                            {event.title}
+                          </CardTitle>
+                          <div className="flex items-center gap-3 text-sm">
+                            <span className="text-slate-400">{event.date}</span>
+                            <span className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs border border-purple-500/30">
+                              {event.type}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-slate-300">{event.description}</p>
+                    </CardContent>
+                  </Card>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-slate-900">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <ScrollReveal>
-              <div className="bg-slate-700/50 rounded-2xl p-8 border border-slate-600">
-                <Lightbulb className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <h2 className="text-3xl font-bold mb-4 text-slate-100">Stay Updated</h2>
-                <p className="text-lg text-slate-300 mb-6">
-                  Get notified when I publish new entries about my learning journey, tech discoveries, and personal growth.
+              <div className="bg-gradient-to-br from-purple-900/50 to-slate-800/50 rounded-2xl p-12 border border-purple-500/30">
+                <Users className="w-16 h-16 text-purple-400 mx-auto mb-6" />
+                <h2 className="text-4xl font-bold mb-4 text-slate-100">Let's Collaborate</h2>
+                <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+                  I'm always open to new collaborations, networking opportunities, and innovative projects. 
+                  Let's connect and create something amazing together.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                  <input
-                    type="email"
-                    placeholder="Your email address"
-                    className="flex-1 px-4 py-3 rounded-lg border border-slate-600 bg-slate-800 text-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-slate-400"
-                  />
-                  <button className="bg-purple-600 text-slate-100 px-6 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors">
-                    Subscribe
-                  </button>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="mailto:your.email@example.com"
+                    className="inline-flex items-center gap-2 bg-purple-600 text-slate-100 px-8 py-4 rounded-lg font-medium hover:bg-purple-700 transition-colors"
+                  >
+                    <Mail className="w-5 h-5" />
+                    Get In Touch
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/Jeremybravoge"
+                    className="inline-flex items-center gap-2 bg-slate-700 text-slate-100 px-8 py-4 rounded-lg font-medium hover:bg-slate-600 transition-colors border border-slate-600"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                    Connect on LinkedIn
+                  </a>
                 </div>
-                <p className="text-sm text-slate-400 mt-4">
-                  No spam, just genuine updates about my journey. Unsubscribe anytime.
-                </p>
               </div>
             </ScrollReveal>
           </div>
@@ -197,4 +313,4 @@ const Journal = () => {
   );
 };
 
-export default Journal;
+export default Collaborations;

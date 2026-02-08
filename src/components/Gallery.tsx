@@ -190,7 +190,7 @@ const Gallery = () => {
     : likedShots;
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div id="gallery" className="min-h-screen bg-gray-900">
       {/* Header with teksoft.co.ke branding */}
       <div className="bg-gray-800 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-6 py-6">

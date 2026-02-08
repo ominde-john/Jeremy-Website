@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+
+interface ConnectProps {
+  scrollTo?: string;
+}
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, ExternalLink } from 'lucide-react';
 
-const Connect = () => {
+const Connect: React.FC<ConnectProps> = ({ scrollTo }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -9,13 +13,15 @@ const Connect = () => {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', formData);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -26,8 +32,8 @@ const Connect = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'hello@teksoft.co.ke',
-      link: 'mailto:hello@teksoft.co.ke'
+      value: 'jeremy@teksoft.co.ke',
+      link: 'mailto:jeremy@teksoft.co.ke'
     },
     {
       icon: Phone,
@@ -53,7 +59,7 @@ const Connect = () => {
     {
       name: 'GitHub',
       icon: Github,
-      url: 'https://github.com/yourprofile',
+      url: 'https://github.com/Jeremybravoge',
       handle: '@jeremybravoge'
     },
     {
@@ -84,7 +90,7 @@ const Connect = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div id="connect" className="min-h-screen bg-gray-900">
       {/* Header */}
       <div className="bg-gray-800 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-6 py-8">

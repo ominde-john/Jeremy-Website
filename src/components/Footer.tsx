@@ -26,17 +26,17 @@ const Footer = () => {
   };
 
   const quickLinks = [
-    { name: 'Work', href: '#work' },
-    { name: 'Collections', href: '#collections' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Gallery', href: '#gallery' },
+    { name: 'About', href: '#story' },
+    { name: 'Skills', href: '#passions' },
+    { name: 'Contact', href: '#connect' }
   ];
 
   const services = [
-    { name: 'Web Development', href: '#services' },
-    { name: 'Mobile Apps', href: '#services' },
-    { name: 'Cloud Solutions', href: '#services' },
-    { name: 'Tech Consulting', href: '#services' }
+    { name: 'Web Development', href: '#passions' },
+    { name: 'Mobile Apps', href: '#passions' },
+    { name: 'Cloud Solutions', href: '#passions' },
+    { name: 'Tech Consulting', href: '#connect' }
   ];
 
   const socialLinks = [
@@ -48,7 +48,7 @@ const Footer = () => {
     },
     { 
       name: 'GitHub', 
-      href: 'https://github.com/yourprofile', 
+      href: 'https://github.com/Jeremybravoge', 
       icon: Github,
       handle: '@jeremybravoge'
     },
@@ -61,9 +61,9 @@ const Footer = () => {
   ];
 
   const stats = [
-    { icon: Briefcase, label: 'Projects Completed', value: '50+' },
-    { icon: Award, label: 'Years Experience', value: '5+' },
-    { icon: TrendingUp, label: 'Happy Clients', value: '30+' },
+    { icon: Briefcase, label: 'Projects Completed', value: '5' },
+    { icon: Award, label: 'Years Experience', value: '2' },
+    { icon: TrendingUp, label: 'Happy Clients', value: '3' },
     { icon: Code, label: 'Lines of Code', value: '100K+' }
   ];
 
@@ -107,11 +107,11 @@ const Footer = () => {
               {/* Contact Info */}
               <div className="space-y-3">
                 <a 
-                  href="mailto:hello@teksoft.co.ke" 
+                  href="mailto:jeremy@teksoft.co.ke" 
                   className="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  <span className="text-sm">hello@teksoft.co.ke</span>
+                  <span className="text-sm">jeremy@teksoft.co.ke</span>
                 </a>
                 <a 
                   href="tel:+254700000000" 

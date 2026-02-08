@@ -133,9 +133,10 @@ const Education = () => {
   ];
 
   return (
-    <div className="min-400-screen bg-gray-900">
+     <div className="min-h-screen bg-slate-900">
       {/* Header */}
       <Navigation/>
+      <main className="pt-20"></main>
       <div className="bg-gray-800 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="text-center">

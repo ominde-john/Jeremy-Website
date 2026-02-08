@@ -33,9 +33,15 @@ const Index = ({ scrollTo }: IndexProps) => {
       <Navigation />
       <Hero />
       <Story />
-      <Passions />
-      <Gallery />
-      <Connect />
+      <section id="passions">
+        <Passions />
+      </section>
+      <section id="gallery">
+        <Gallery />
+      </section>
+      <section id="connect">
+        <Connect />
+      </section>
       <Footer />
     </div>
   );

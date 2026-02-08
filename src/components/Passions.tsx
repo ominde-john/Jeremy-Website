@@ -101,7 +101,7 @@ const Skills = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div id="passions" className="min-h-screen bg-gray-900">
       {/* Header */}
       <div className="bg-gray-800 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-6 py-12">
@@ -203,15 +203,15 @@ const Skills = () => {
           <h2 className="text-2xl font-bold text-white mb-6">Professional Highlights</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-400 mb-2">5+</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">2</div>
               <div className="text-sm text-gray-400">Years of Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-emerald-400 mb-2">50+</div>
+              <div className="text-3xl font-bold text-emerald-400 mb-2">5</div>
               <div className="text-sm text-gray-400">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-400 mb-2">30+</div>
+              <div className="text-3xl font-bold text-purple-400 mb-2">3</div>
               <div className="text-sm text-gray-400">Happy Clients</div>
             </div>
           </div>
@@ -233,7 +233,7 @@ const Skills = () => {
         <div className="mt-16 text-center">
           <h3 className="text-xl font-bold text-white mb-4">Interested in working together?</h3>
           <a
-            href="#contact"
+            href="#connect"
             className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
           >
             Get in Touch
