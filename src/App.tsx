@@ -10,6 +10,7 @@ import Education from "./pages/Education";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
+
 const queryClient = new QueryClient();
 
 const App = () => (

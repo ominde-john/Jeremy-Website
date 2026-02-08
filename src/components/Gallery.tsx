@@ -1,193 +1,377 @@
-
 import React, { useState } from 'react';
-import { Code, Laptop, Users, Award } from 'lucide-react';
-import ScrollReveal from '@/components/ScrollReveal';
+import { Heart, Eye, Folder, Star, Briefcase } from 'lucide-react';
 
 const Gallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState('work');
 
   const categories = [
-    { id: 'all', name: 'All Projects', emoji: '🌟' },
-    { id: 'web', name: 'Web Dev', emoji: '🌐' },
-    { id: 'data', name: 'Data Science', emoji: '📊' },
-    { id: 'personal', name: 'Personal', emoji: '🎯' },
-    { id: 'learning', name: 'Learning', emoji: '📚' }
+    { id: 'work', name: 'Work', icon: Briefcase },
+    { id: 'collections', name: 'Collections', icon: Folder },
+    { id: 'liked', name: 'Liked Shots', icon: Heart }
   ];
 
-  const galleryItems = [
+  const portfolioItems = [
     {
       id: 1,
-      src: "/lovable-uploads/4b5d003a-fcd1-467d-83e1-bfbbf362097c.png",
-      category: 'personal',
-      caption: "Professional networking and collaboration - building connections in Kenya's tech community",
-      alt: "Jeremy with colleagues",
-      title: "Tech Community",
-      facePosition: 'center top 25%'
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      title: "School Management System",
+      tags: "React + Node + PostgreSQL",
+      likes: 245,
+      views: 1832,
+      category: 'work',
+      company: 'teksoft.co.ke'
     },
     {
       id: 2,
-      src: "/lovable-uploads/87cfc6cf-0ce0-4065-ba66-93274fa708bc.png",
-      category: 'learning',
-      caption: "Coding sessions and problem-solving marathons",
-      alt: "Coding session",
-      title: "Development Environment",
-      facePosition: 'center top 30%'
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
+      title: "MPESA Donation Platform",
+      tags: "Laravel / React",
+      likes: 189,
+      views: 1456,
+      category: 'work',
+      company: 'teksoft.co.ke'
     },
     {
       id: 3,
-      src: "/lovable-uploads/7d3ab5b9-67bd-4acf-ab30-6218265589cf.png",
-      category: 'web',
-      caption: "Documenting development process and sharing knowledge through content creation",
-      alt: "Content creation",
-      title: "Knowledge Sharing",
-      facePosition: 'center top 20%'
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      title: "WordPress Admin Customizations",
+      tags: "WordPress",
+      likes: 132,
+      views: 987,
+      category: 'work',
+      company: 'teksoft.co.ke'
     },
     {
       id: 4,
-      src: "/lovable-uploads/66af1b0a-31fe-41d2-b09b-091a1471d669.png",
-      category: 'data',
-      caption: "Data visualization and analytics projects",
-      alt: "Data analysis",
-      title: "Data Science Work",
-      facePosition: 'center top 25%'
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
+      title: "Flutter UI Prototypes",
+      tags: "Flutter / Dart",
+      likes: 278,
+      views: 2134,
+      category: 'work',
+      company: 'teksoft.co.ke'
     },
     {
       id: 5,
-      src: "/lovable-uploads/c2bcaa9b-eff1-4d61-be89-2651b313aba7.png",
-      category: 'personal',
-      caption: "Professional developer ready to tackle complex programming challenges",
-      alt: "Professional setup",
-      title: "Professional Focus",
-      facePosition: 'center top 15%'
+      image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=600&fit=crop",
+      title: "YouTube Media Editing",
+      tags: "Video Production",
+      likes: 156,
+      views: 1123,
+      category: 'work',
+      company: 'teksoft.co.ke'
     },
     {
       id: 6,
-      src: "/lovable-uploads/977cbd89-2b52-4943-a787-83f575e4cd01.png",
-      category: 'learning',
-      caption: "Continuous learning and skill development in modern technologies",
-      alt: "Skill development",
-      title: "Continuous Growth",
-      facePosition: 'center top 20%'
+      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop",
+      title: "IoT Learning Projects",
+      tags: "Arduino / Sensors",
+      likes: 98,
+      views: 756,
+      category: 'work',
+      company: 'teksoft.co.ke'
     }
   ];
 
-  const filteredItems = selectedCategory === 'all' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === selectedCategory);
+  // Collections data - organized project groupings
+  const collections = [
+    {
+      id: 1,
+      name: "Web Development Projects",
+      description: "Full-stack web applications built with modern frameworks",
+      count: 8,
+      thumbnail: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600&fit=crop",
+      category: 'collections'
+    },
+    {
+      id: 2,
+      name: "Mobile Apps",
+      description: "Cross-platform mobile solutions using Flutter and React Native",
+      count: 5,
+      thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
+      category: 'collections'
+    },
+    {
+      id: 3,
+      name: "Data Science & Analytics",
+      description: "Machine learning models and data visualization dashboards",
+      count: 12,
+      thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      category: 'collections'
+    },
+    {
+      id: 4,
+      name: "UI/UX Design",
+      description: "Interface designs and user experience projects",
+      count: 15,
+      thumbnail: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
+      category: 'collections'
+    },
+    {
+      id: 5,
+      name: "E-commerce Solutions",
+      description: "Online stores and payment integration systems",
+      count: 6,
+      thumbnail: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      category: 'collections'
+    },
+    {
+      id: 6,
+      name: "API & Backend",
+      description: "RESTful APIs, microservices, and server infrastructure",
+      count: 10,
+      thumbnail: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+      category: 'collections'
+    }
+  ];
+
+  // Liked shots - inspiration and favorite designs
+  const likedShots = [
+    {
+      id: 1,
+      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
+      title: "Modern Dashboard Design",
+      author: "Design Inspiration",
+      likes: 1204,
+      views: 15420,
+      category: 'liked'
+    },
+    {
+      id: 2,
+      image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&h=600&fit=crop",
+      title: "Minimalist Mobile UI",
+      author: "UI Patterns",
+      likes: 892,
+      views: 12300,
+      category: 'liked'
+    },
+    {
+      id: 3,
+      image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=600&fit=crop",
+      title: "Gradient Color Schemes",
+      author: "Color Theory",
+      likes: 2156,
+      views: 28900,
+      category: 'liked'
+    },
+    {
+      id: 4,
+      image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=600&fit=crop",
+      title: "3D Animation Concepts",
+      author: "Motion Design",
+      likes: 1876,
+      views: 23400,
+      category: 'liked'
+    },
+    {
+      id: 5,
+      image: "https://images.unsplash.com/photo-1557838923-2985c318be48?w=800&h=600&fit=crop",
+      title: "E-commerce UX Flow",
+      author: "UX Research",
+      likes: 945,
+      views: 11200,
+      category: 'liked'
+    },
+    {
+      id: 6,
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
+      title: "Dark Mode Interfaces",
+      author: "Interface Design",
+      likes: 1523,
+      views: 19800,
+      category: 'liked'
+    }
+  ];
+
+  const filteredItems = selectedCategory === 'work' 
+    ? portfolioItems 
+    : selectedCategory === 'collections'
+    ? collections
+    : likedShots;
 
   return (
-    <section id="gallery" className="py-20 bg-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-              🚀 Projects & Professional Journey
-            </h2>
-            <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-              A showcase of my development journey, projects, and technical achievements from Kenya
-            </p>
-          </div>
-        </ScrollReveal>
-
-        {/* Category Filter */}
-        <ScrollReveal delay={100}>
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 border ${
-                  selectedCategory === category.id
-                    ? 'bg-sky-500 text-slate-900 border-sky-500 shadow-lg scale-105'
-                    : 'bg-slate-700 text-slate-300 border-slate-600 hover:bg-slate-600 hover-scale'
-                }`}
-              >
-                <span className="mr-2">{category.emoji}</span>
-                {category.name}
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item, index) => (
-            <ScrollReveal key={item.id} direction="scale" delay={index * 100}>
-              <div
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover-lift bg-slate-700 border border-slate-600"
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    style={{
-                      objectPosition: item.facePosition,
-                      filter: 'contrast(1.2) saturate(1.1) brightness(1.05)'
-                    }}
-                  />
-                </div>
-                
-                {/* Project Info Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-slate-100 text-lg font-bold mb-2">{item.title}</h3>
-                    <p className="text-slate-300 text-sm leading-relaxed">
-                      {item.caption}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-slate-200 border border-slate-600">
-                  {categories.find(cat => cat.id === item.category)?.emoji}
-                  {categories.find(cat => cat.id === item.category)?.name}
-                </div>
-
-                {/* Tech Stack Indicator */}
-                <div className="absolute top-4 right-4 flex gap-1">
-                  <div className="w-3 h-3 bg-sky-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* Achievement Highlights */}
-        <ScrollReveal delay={200}>
-          <div className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-slate-800/70 to-slate-700/70 rounded-2xl p-8 max-w-4xl mx-auto border border-slate-600">
-              <h3 className="text-xl font-bold mb-6 text-slate-100">Professional Milestones:</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="flex items-center gap-3">
-                  <Code className="w-8 h-8 text-sky-400" />
-                  <div>
-                    <h4 className="font-semibold text-slate-100">1000+ Hours</h4>
-                    <p className="text-sm text-slate-400">Professional Coding</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Laptop className="w-8 h-8 text-emerald-400" />
-                  <div>
-                    <h4 className="font-semibold text-slate-100">20+ Projects</h4>
-                    <p className="text-sm text-slate-400">Delivered</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Award className="w-8 h-8 text-purple-400" />
-                  <div>
-                    <h4 className="font-semibold text-slate-100">Kenya Tech</h4>
-                    <p className="text-sm text-slate-400">Professional</p>
-                  </div>
-                </div>
-              </div>
+    <div className="min-h-screen bg-gray-900">
+      {/* Header with teksoft.co.ke branding */}
+      <div className="bg-gray-800 border-b border-gray-700">
+        <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl font-bold text-white mb-1">teksoft.co.ke</h1>
+              <p className="text-sm text-gray-400">Software Development & Tech Solutions</p>
+            </div>
+            <div className="flex items-center gap-2 text-xs text-gray-400">
+              <Briefcase className="w-4 h-4" />
+              <span>Founder & Lead Developer</span>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
-    </section>
+
+      {/* Navigation */}
+      <nav className="border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex gap-8">
+            {categories.map((category) => {
+              const Icon = category.icon;
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`py-4 px-2 text-sm font-medium transition-colors relative flex items-center gap-2 ${
+                    selectedCategory === category.id
+                      ? 'text-white'
+                      : 'text-gray-400 hover:text-gray-200'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  {category.name}
+                  {selectedCategory === category.id && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"></div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </nav>
+
+      {/* Content Area */}
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        {/* Work Portfolio Grid */}
+        {selectedCategory === 'work' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {portfolioItems.map((item) => (
+              <div key={item.id} className="group cursor-pointer">
+                <div className="relative bg-gray-800 rounded-xl overflow-hidden mb-4 aspect-[4/3]">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
+                    <div className="flex items-center gap-2 text-white">
+                      <Heart className="w-5 h-5" />
+                      <span className="text-sm font-medium">{item.likes}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-white">
+                      <Eye className="w-5 h-5" />
+                      <span className="text-sm font-medium">{item.views}</span>
+                    </div>
+                  </div>
+
+                  {/* Company Badge */}
+                  <div className="absolute top-3 right-3 bg-blue-600 px-2 py-1 rounded text-xs font-medium text-white">
+                    {item.company}
+                  </div>
+                </div>
+
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-semibold text-white mb-1 truncate group-hover:text-pink-400 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-gray-400 truncate">{item.tags}</p>
+                  </div>
+                  
+                  <div className="hidden lg:flex items-center gap-3 text-xs text-gray-400">
+                    <div className="flex items-center gap-1">
+                      <Heart className="w-3.5 h-3.5" />
+                      <span>{item.likes}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>{item.views}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Collections Grid */}
+        {selectedCategory === 'collections' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {collections.map((collection) => (
+              <div key={collection.id} className="group cursor-pointer">
+                <div className="relative bg-gray-800 rounded-xl overflow-hidden mb-4 aspect-[4/3]">
+                  <img
+                    src={collection.thumbnail}
+                    alt={collection.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Folder className="w-5 h-5 text-blue-400" />
+                        <span className="text-sm font-medium text-white">{collection.count} projects</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-semibold text-white mb-1 group-hover:text-blue-400 transition-colors">
+                    {collection.name}
+                  </h3>
+                  <p className="text-xs text-gray-400 line-clamp-2">{collection.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Liked Shots Grid */}
+        {selectedCategory === 'liked' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {likedShots.map((shot) => (
+              <div key={shot.id} className="group cursor-pointer">
+                <div className="relative bg-gray-800 rounded-xl overflow-hidden mb-4 aspect-[4/3]">
+                  <img
+                    src={shot.image}
+                    alt={shot.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
+                    <div className="flex items-center gap-2 text-white">
+                      <Heart className="w-5 h-5 fill-red-500 text-red-500" />
+                      <span className="text-sm font-medium">{shot.likes}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-white">
+                      <Eye className="w-5 h-5" />
+                      <span className="text-sm font-medium">{shot.views}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-semibold text-white mb-1 truncate group-hover:text-pink-400 transition-colors">
+                      {shot.title}
+                    </h3>
+                    <p className="text-xs text-gray-400 truncate">by {shot.author}</p>
+                  </div>
+                  
+                  <div className="hidden lg:flex items-center gap-3 text-xs text-gray-400">
+                    <div className="flex items-center gap-1">
+                      <Heart className="w-3.5 h-3.5" />
+                      <span>{shot.likes}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>{shot.views}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 

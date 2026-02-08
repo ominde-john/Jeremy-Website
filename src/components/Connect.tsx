@@ -1,185 +1,277 @@
-import React from 'react';
-import { Instagram, Music, BookOpen, Mail, MessageCircle, Send, Twitter } from 'lucide-react';
-import { FaFacebook, FaTiktok } from 'react-icons/fa';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import ScrollReveal from '@/components/ScrollReveal';
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, ExternalLink } from 'lucide-react';
 
 const Connect = () => {
-  const socials = [
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log('Form submitted:', formData);
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const contactInfo = [
     {
-      platform: 'Instagram',
-      handle: '@Jeremybravoge',
-      description: 'Daily journey & tech updates',
-      icon: <Instagram className="w-6 h-6" />,
-      color: 'bg-gradient-to-r from-purple-500 to-pink-500',
-      emoji: '📸',
-      url: 'https://instagram.com/Jeremybravoge'
+      icon: Mail,
+      label: 'Email',
+      value: 'hello@teksoft.co.ke',
+      link: 'mailto:hello@teksoft.co.ke'
     },
     {
-      platform: 'Twitter',
-      handle: '@Jeremybravoge',
-      description: 'Tech thoughts & updates',
-      icon: <Twitter className="w-6 h-6" />,
-      color: 'bg-blue-500',
-      emoji: '🐦',
-      url: 'https://twitter.com/Jeremybravoge'
+      icon: Phone,
+      label: 'Phone',
+      value: '+254 115000514',
+      link: 'tel:+254700000000'
     },
     {
-      platform: 'TikTok',
-      handle: '@Jeremybravoge',
-      description: 'Fun tech & learning content',
-      icon: <FaTiktok className="w-6 h-6" />,
-      color: 'bg-black',
-      emoji: '🎵',
-      url: 'https://tiktok.com/@Jeremybravoge'
-    },
-    {
-      platform: 'Facebook',
-      handle: '@Jeremybravoge',
-      description: 'Connect & networking',
-      icon: <FaFacebook className="w-6 h-6" />,
-      color: 'bg-blue-600',
-      emoji: '👥',
-      url: 'https://facebook.com/Jeremybravoge'
+      icon: MapPin,
+      label: 'Location',
+      value: 'Nairobi, Kenya',
+      link: null
     }
   ];
 
-  const contactMethods = [
+  const socialLinks = [
     {
-      title: 'Send a message',
-      description: 'Let\'s talk about tech, learning, or life',
-      icon: <MessageCircle className="w-8 h-8" />,
-      action: 'Start a conversation'
+      name: 'LinkedIn',
+      icon: Linkedin,
+      url: 'https://linkedin.com/in/yourprofile',
+      handle: '@jeremybravoge'
     },
     {
-      title: 'Collaboration',
-      description: 'Interested in working together?',
-      icon: <Send className="w-8 h-8" />,
-      action: 'Let\'s collaborate'
+      name: 'GitHub',
+      icon: Github,
+      url: 'https://github.com/yourprofile',
+      handle: '@jeremybravoge'
     },
     {
-      title: 'Mentorship',
-      description: 'Share knowledge and learn together',
-      icon: <Mail className="w-8 h-8" />,
-      action: 'Connect with me'
+      name: 'Twitter',
+      icon: Twitter,
+      url: 'https://twitter.com/jeremybravoge',
+      handle: '@jeremybravoge'
+    }
+  ];
+
+  const services = [
+    {
+      title: 'Web Development',
+      description: 'Full-stack web applications with modern frameworks'
+    },
+    {
+      title: 'Mobile Apps',
+      description: 'Cross-platform mobile solutions'
+    },
+    {
+      title: 'Cloud Solutions',
+      description: 'Scalable cloud infrastructure & deployment'
+    },
+    {
+      title: 'Tech Consulting',
+      description: 'Strategic technology guidance & planning'
     }
   ];
 
   return (
-    <section id="connect" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-              💌 Connect with Me
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Let's connect and share our journey in tech, learning, and growth!
+    <div className="min-h-screen bg-gray-900">
+      {/* Header */}
+      <div className="bg-gray-800 border-b border-gray-700">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-white mb-3">Let's Work Together</h1>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Ready to bring your ideas to life? Get in touch and let's discuss your next project.
             </p>
           </div>
-        </ScrollReveal>
+        </div>
+      </div>
 
-        {/* Social Media */}
-        <div className="mb-16">
-          <ScrollReveal>
-            <h3 className="text-2xl font-bold mb-8 text-center">Find me on:</h3>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {socials.map((social, index) => (
-              <ScrollReveal key={index} direction="scale" delay={index * 100}>
-                <Card className="hover-lift group cursor-pointer">
-                  <CardContent className="p-6 text-center">
-                    <a href={social.url} target="_blank" rel="noopener noreferrer" className="block">
-                      <div className={`${social.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform duration-300`}>
-                        {social.icon}
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid lg:grid-cols-5 gap-12">
+          {/* Left Column - Contact Info & Socials */}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Company Info */}
+            <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+              <h2 className="text-2xl font-bold text-white mb-2">teksoft.co.ke</h2>
+              <p className="text-gray-400 mb-6">
+                Professional software development and tech solutions based in Kenya.
+              </p>
+              
+              {/* Contact Details */}
+              <div className="space-y-4">
+                {contactInfo.map((item, index) => {
+                  const Icon = item.icon;
+                  const content = (
+                    <div className="flex items-start gap-4 p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors">
+                      <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-5 h-5 text-white" />
                       </div>
-                      <h4 className="font-bold text-lg mb-2 flex items-center justify-center gap-2">
-                        <span>{social.emoji}</span>
-                        {social.platform}
-                      </h4>
-                      <p className="text-ocean-blue font-medium mb-2">{social.handle}</p>
-                      <p className="text-gray-600 text-sm italic">"{social.description}"</p>
-                    </a>
-                  </CardContent>
-                </Card>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-
-        {/* Contact Methods */}
-        <div className="mb-16">
-          <ScrollReveal>
-            <h3 className="text-2xl font-bold mb-8 text-center">Get in touch:</h3>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-3 gap-8">
-            {contactMethods.map((method, index) => (
-              <ScrollReveal key={index} direction="scale" delay={index * 100}>
-                <Card className="hover-lift group">
-                  <CardHeader className="text-center">
-                    <div className="bg-ocean-blue/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-blue group-hover:bg-ocean-blue group-hover:text-white transition-all duration-300">
-                      {method.icon}
+                      <div>
+                        <div className="text-xs text-gray-400 mb-1">{item.label}</div>
+                        <div className="text-sm text-white font-medium">{item.value}</div>
+                      </div>
                     </div>
-                    <CardTitle className="text-lg">{method.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-gray-600 mb-4">{method.description}</p>
-                    <Button variant="outline" className="hover:bg-ocean-blue hover:text-white hover:border-ocean-blue transition-all duration-300">
-                      {method.action}
-                    </Button>
-                  </CardContent>
-                </Card>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
+                  );
 
-        {/* Contact Info */}
-        <ScrollReveal>
-          <Card className="hover-lift max-w-4xl mx-auto">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <span className="text-2xl">📧</span>
-                Let's Connect:
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-lg mb-6 text-gray-600">
-                Whether you want to discuss tech, share learning resources, or just say hi - I'm always open to meaningful conversations.
-              </p>
-              <div className="bg-ocean-blue/10 rounded-lg p-6 inline-block">
-                <p className="font-mono text-ocean-blue font-medium">
-                  Follow @Jeremybravoge across all platforms<br />
-                  for the latest updates and insights
-                </p>
+                  return item.link ? (
+                    <a key={index} href={item.link} className="block">
+                      {content}
+                    </a>
+                  ) : (
+                    <div key={index}>{content}</div>
+                  );
+                })}
               </div>
-              <p className="text-sm text-gray-500 mt-4 italic">
-                Pro tip: Tag me in your tech projects - I love seeing what others are building!
-              </p>
-            </CardContent>
-          </Card>
-        </ScrollReveal>
+            </div>
 
-        {/* Fun Call to Action */}
-        <ScrollReveal delay={100}>
-          <div className="text-center mt-16">
-            <div className="ocean-gradient rounded-2xl p-8 text-white max-w-3xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4">Ready to connect?</h3>
-              <p className="text-lg mb-6">
-                Whether you want to share tech insights, discuss learning paths, or collaborate on projects - let's make it happen!
-              </p>
-              <Button 
-                size="lg" 
-                className="bg-white text-ocean-blue hover:bg-gray-100 font-semibold px-8 py-3 rounded-full hover-scale"
-              >
-                Let's build something amazing! 🚀
-              </Button>
+            {/* Services */}
+            <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+              <h3 className="text-lg font-bold text-white mb-6">What I Offer</h3>
+              <div className="space-y-4">
+                {services.map((service, index) => (
+                  <div key={index} className="border-l-2 border-blue-600 pl-4">
+                    <h4 className="text-sm font-semibold text-white mb-1">{service.title}</h4>
+                    <p className="text-xs text-gray-400">{service.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+              <h3 className="text-lg font-bold text-white mb-6">Connect With Me</h3>
+              <div className="space-y-3">
+                {socialLinks.map((social, index) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between p-3 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Icon className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+                        <div>
+                          <div className="text-sm font-medium text-white">{social.name}</div>
+                          <div className="text-xs text-gray-400">{social.handle}</div>
+                        </div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-400 transition-colors" />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </ScrollReveal>
+
+          {/* Right Column - Contact Form */}
+          <div className="lg:col-span-3">
+            <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+              <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name */}
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                    placeholder="Jeremy Bravoge"
+                    required
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                    placeholder="codemaster@gmail.com"
+                    required
+                  />
+                </div>
+
+                {/* Subject */}
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                    placeholder="Project Inquiry"
+                    required
+                  />
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="6"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none"
+                    placeholder="Tell me about your project..."
+                    required
+                  ></textarea>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 group"
+                >
+                  <span>Send Message</span>
+                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </form>
+
+              {/* Additional Info */}
+              <div className="mt-8 pt-6 border-t border-gray-700">
+                <p className="text-sm text-gray-400 text-center">
+                  Typically responds within 24 hours • Available for freelance projects
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
