@@ -8,7 +8,7 @@ import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, ExternalLink } fr
 
 // Initialize EmailJS - Replace with your credentials from emailjs.com
 const EMAILJS_PUBLIC_KEY = '3DfY7yFhgs13OI9bA';
-const EMAILJS_SERVICE_ID = 'service_6bjtfzv';
+const EMAILJS_SERVICE_ID = 'service_wj7obfj';
 const EMAILJS_TEMPLATE_ID = 'template_ghdq5hz';
 
 const Connect: React.FC<ConnectProps> = ({ scrollTo }) => {
