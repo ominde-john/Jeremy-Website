@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import emailjs from 'emailjs-com';
 
 interface ConnectProps {
   scrollTo?: string;
 }
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, ExternalLink } from 'lucide-react';
+
+// Initialize EmailJS - Replace with your credentials from emailjs.com
+const EMAILJS_PUBLIC_KEY = '3DfY7yFhgs13OI9bA';
+const EMAILJS_SERVICE_ID = 'service_6bjtfzv';
+const EMAILJS_TEMPLATE_ID = 'template_ghdq5hz';
 
 const Connect: React.FC<ConnectProps> = ({ scrollTo }) => {
   const [formData, setFormData] = useState({
@@ -13,10 +19,71 @@ const Connect: React.FC<ConnectProps> = ({ scrollTo }) => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
+
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY_HERE') {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+
+    // Validate that EmailJS is configured
+    if (
+      EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY_HERE' ||
+      EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID_HERE' ||
+      EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID_HERE'
+    ) {
+      setMessage('⚠️ Email service not configured. Please set up EmailJS credentials.');
+      setMessageType('error');
+      return;
+    }
+
+    setIsLoading(true);
+    setMessage('');
+
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          to_email: 'codemaster5362@gmail.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }
+      );
+
+      setMessage('✅ Message sent successfully! I\'ll get back to you soon.');
+      setMessageType('success');
+
+      // Clear form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+
+      // Clear message after 5 seconds
+      setTimeout(() => {
+        setMessage('');
+        setMessageType('');
+      }, 5000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setMessage('❌ Failed to send message. Please try again or contact me directly.');
+      setMessageType('error');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (
@@ -260,11 +327,29 @@ const Connect: React.FC<ConnectProps> = ({ scrollTo }) => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 group"
+                  disabled={isLoading}
+                  className={`w-full font-medium py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 group ${
+                    isLoading
+                      ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                      : 'bg-blue-600 hover:bg-blue-700 text-white'
+                  }`}
                 >
-                  <span>Send Message</span>
-                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
+                  <Send className={`w-4 h-4 ${!isLoading ? 'group-hover:translate-x-1' : ''} transition-transform`} />
                 </button>
+
+                {/* Status Message */}
+                {message && (
+                  <div
+                    className={`p-4 rounded-lg text-center font-medium transition-all ${
+                      messageType === 'success'
+                        ? 'bg-green-900/30 text-green-400 border border-green-700'
+                        : 'bg-red-900/30 text-red-400 border border-red-700'
+                    }`}
+                  >
+                    {message}
+                  </div>
+                )}
               </form>
 
               {/* Additional Info */}
