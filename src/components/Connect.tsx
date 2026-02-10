@@ -25,8 +25,11 @@ const Connect: React.FC<ConnectProps> = ({ scrollTo }) => {
 
   // Initialize EmailJS on component mount
   useEffect(() => {
-    if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY_HERE') {
+    try {
       emailjs.init(EMAILJS_PUBLIC_KEY);
+      console.log('EmailJS initialized successfully');
+    } catch (error) {
+      console.error('Failed to initialize EmailJS:', error);
     }
   }, []);
 
@@ -49,15 +52,25 @@ const Connect: React.FC<ConnectProps> = ({ scrollTo }) => {
 
     try {
       // Send email using EmailJS
+      const currentTime = new Date().toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
-          to_email: 'codemaster5362@gmail.com',
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           subject: formData.subject,
           message: formData.message,
+          time: currentTime,
         }
       );
 
@@ -77,8 +90,19 @@ const Connect: React.FC<ConnectProps> = ({ scrollTo }) => {
         setMessage('');
         setMessageType('');
       }, 5000);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending email:', error);
+      console.error('Full Error Object:', error);
+      console.error('Error status:', error?.status);
+      console.error('Error text:', error?.text);
+      console.error('Error message:', error?.message);
+      console.error('Sent data:', {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        time: 'current time'
+      });
       setMessage('❌ Failed to send message. Please try again or contact me directly.');
       setMessageType('error');
     } finally {
